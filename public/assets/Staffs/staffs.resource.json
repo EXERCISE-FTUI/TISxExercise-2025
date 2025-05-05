@@ -1,0 +1,143 @@
+{
+    "Kepala Sekolah": {
+        "name": "Kepala Sekolah",
+        "divisions": {
+            "Kepala Sekolah": {
+                "name": "Kepala Sekolah",
+                "desc": "Menjalankan tugas sebagai ketua umum dan mengontrol jalannya organisasi.",
+                "image": "",
+                "responsibility": {
+                    "1": "mimpin",
+                    "2": "lorem ipsum"
+                }
+            }
+        }
+    },
+    "Internal": {
+        "name": "Bidang Internal",
+        "divisions": {
+            "Kebendaharaan": {
+                "name": "Bidang Kebendaharaan",
+                "desc": "Bidang yang menangani administrasi, pengelolaan timeline, dan internalisasi antar pengurus TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Membuat SOP keuangan.",
+                    "2": "Membuat dan mempublikasikan laporan keuangan.",
+                    "3": "Melakukan pencerdasan mengenai SOP kebendaharaan.",
+                    "4": "Menjaga neraca keuangan agar sesuai yang diencanakan.",
+                    "5": "Mencari dana sebagai pemasukan, secara offline dan online.",
+                    "6": "Memproyeksikan adanya dana turunan demi keberlangsungan lembaga.",
+                    "7": "Membuat RKAT dalam satu kepengurusan."
+                }
+            },
+            "Kesekretariatan": {
+                "name": "Bidang Kesekretariatan",
+                "desc": "Bidang yang menangani administrasi, pengelolaan timeline, dan internalisasi antar pengurus TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Melakukan pencatatan iventarisasi dan revitalisasi sekretariat.",
+                    "2": "Merekap timeline program kerja dan kegiatan selama kepungurusan.",
+                    "3": "Membuat database pengurus.",
+                    "4": "Membuat kebutuhan administrasi.",
+                    "5": "Merancang konsolidasi TIS secara kesatuan.",
+                    "6": "Mengucapkan ulang tahun kepada pengurus TIS yang berulang tahun."
+                }
+            },
+            "Penelitian dan Pengembangan": {
+                "name": "Bidang Penelitian dan Pengembangan",
+                "desc": "Bidang yang mengawasi dan mengevaluasi kinerja TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Melakukan pengawasan, evaluasi, dan pengarsipan atas kinerja TIS.",
+                    "2": "Melakukan kontrol terhadap pembuatan dan pelaksanaan Kurikulum Kaderisasi.",
+                    "3": "Membuat rencana strategis atas evaluasi kinerja TIS.",
+                    "4": "Memberikan rekomendasi terhadap program kerja berdasarkan kontrol kualitas dan evaluasi tahun sebelumnya.",
+                    "5": "Mengindentifikasi kebutuhan warga daerah operasional dan warga IKM FTUI.",
+                    "6": "Membuat sistem penilaian pemilihan kepala sekolah TIS dan Project Officer kepanitiaan TIS."
+                }
+            }
+        }
+    },
+    "Eksternal": {
+        "name": "Bidang Eksternal",
+        "divisions": {
+            "Pemberdayaan Masyarakat": {
+                "name": "Bidang Pemberdayaan Masyarakat",
+                "desc": "Bidang yang menangani penyelenggaraan kegiatan bagi masyarakat daerah operasional TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Menumbuhkan kepekaan dan mewadahi minat warga IKM FTUI dalam aspek pengabdian masyarakat di bidang pendidikan.",
+                    "2": "Melakukan kegiatan pemberdayaan masyarakat berdasarkan kebutuhan warga daerah operasional.",
+                    "3": "Menjalin relasi dengan masyarakat daerah operasional.",
+                    "4": "Mengadakan workshop tentang pembuatan barang yang dapat menjadi ilmu dan pengetahuan.",
+                    "5": "Mengadakan pengecekan kesehatan untuk warga daerah operasional"
+                }
+            },
+            "Kesejahteraan": {
+                "name": "Bidang Kesejahteraan",
+                "desc": "Bidang yang menjembatani kakak asuh dan donatur dengan adik asuh TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Membuat SOP cara berdonasi.",
+                    "2": "Menjaga hubungan TIS dengan Kakak Asuh dan Donatur TIS dengan melakukan apresiasi kepada mereka.",
+                    "3": "Memberikan hasil transparansi dana kepada Kakak Asuh dan Donatur TIS.",
+                    "4": "Melibatkan Kakak Asuh dalam program kerja atau kegiatan TIS FTUI 2025.",
+                    "5": "Melakukan pencerdasan mengenai perbedaan Kakak Asuh dan Donatur termasuk manfaat dan keuntungan yang diperoleh."
+                }
+            },
+            "Pengajaran": {
+                "name": "Bidang Pengajaran",
+                "desc": "Bidang yang menangani penyusunan kurikulum, fasilitas pembelajaran, dan Kesatria Pengajar TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Menyusun rancangan pelaksanaan pengajaran untuk kegiatan belajar mengajar (KBM).",
+                    "2": "Membuat kurikulum (bab, materi, dan jadwal) untuk KBM.",
+                    "3": "Membuat rangkuman untuk adik ajar dalam bentuk fisik.",
+                    "4": "Mempersiapkan dan Mengelola kesatria pengajar sebagai pengajar adik ajar dengan penjagaan hubungan dan pemberian apresiasi.",
+                    "5": "Melaksanakan dan mengevaluasi proses KBM."
+                }
+            },
+            "Kesiswaan": {
+                "name": "Bidang Kesiswaan",
+                "desc": "Bidang yang mengawasi, mengevaluasi, dan mengapresiasi adik ajak TIS FTUI.",
+                "image": "",
+                "responsibility": {
+                    "1": "Membuat perancangan SOP Humas.",
+                    "2": "Menjadi narahubung TIS dengan pengurus daerah operasional.",
+                    "3": "Menjalin relasi dengan lembaga IKM FTUI dan Rumah Belajar.",
+                    "4": "Mempublikasikan info kerelawanan.",
+                    "5": "Mengkaji dan mempublikasikan isu pendidikan.",
+                    "6": "Merencanakan studi banding ke organisasi serupa dan bincang bersama alumni.",
+                    "7": "Menjalin relasi dengan alumni dan melaksanakan apresiasi wisudawan."
+                }
+            },
+            "Humas": {
+                "name": "Bidang Humas",
+                "desc": "Bidang yang membangun koneksi dan menjalin relasi dengan pihak eksternal.",
+                "image": "",
+                "responsibility": {
+                    "1": "Membuat perancangan SOP Humas.",
+                    "2": "Menjadi narahubung TIS dengan pengurus daerah operasional.",
+                    "3": "Menjalin relasi dengan lembaga IKM FTUI dan Rumah Belajar.",
+                    "4": "Mempublikasikan info kerelawanan.",
+                    "5": "Mengkaji dan mempublikasikan isu pendidikan.",
+                    "6": "Merencanakan studi banding ke organisasi serupa dan bincang bersama alumni.",
+                    "7": "Menjalin relasi dengan alumni dan melaksanakan apresiasi wisudawan."
+                }
+            },
+            "Media": {
+                "name": "Bidang Media",
+                "desc": "Bidang yang melakukan publikasi online dan offline, serta merancang visualisasi publikasi.",
+                "image": "contoh.png",
+                "responsibility": {
+                    "1": "Membuat perancangan SOP desain.",
+                    "2": "Menjalankan dan mengkoordinasikan publikasi secara fisik dan lewat sosial media.",
+                    "3": "Melakukan penuansaan hari-hari besar pendidikan dan sosial.",
+                    "4": "Bertanggung jawab atas pengembangan website.",
+                    "5": "Mengelola semua sosial media TIS FTUI.",
+                    "6": "Mengadakan pelatihan desain."
+                }
+            }
+        }
+    }
+}
