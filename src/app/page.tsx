@@ -1,4 +1,3 @@
-// import Image from "next/image";
 import React from "react";
 import Hero from '@/sections/Hero/Hero'
 import WhatIsTIS from '@/sections/WhatIsTIS/WhatIsTIS';
@@ -8,6 +7,7 @@ import Mission from '@/sections/Mission/Mission';
 import OperationalRegion from '@/sections/OperationalRegion/OperationalRegion';
 import Staffs from '@/sections/Staffs/Staffs';
 import Gallery from '@/sections/Gallery/Gallery';
+import History from '@/sections/HistoryTIS/History';
 
 const page = () => {
   return (
@@ -20,6 +20,7 @@ const page = () => {
       <OperationalRegion/>
       <Staffs/>
       <Gallery/>
+      <History/>
     </div>
   );
 };
