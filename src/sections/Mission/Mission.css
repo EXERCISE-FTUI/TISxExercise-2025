@@ -8,6 +8,6 @@
 .textstroke-white {
   -webkit-text-stroke-width: 5px;
   -webkit-text-stroke-color: #ffffff;
-  text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.409);
+  text-shadow: 0px 4px 20px #383a85;
   paint-order: stroke fill;
 }
