@@ -71,10 +71,16 @@ export function Gallery() {
 
   return (
     <div className="space-y-8">
-      <div className="text-center text-8xl font-extrabold text-[#383A85] p-8">
-        Galeri TIS FTUI 2025
+      <div className="flex justify-center p-12">
+        <Image
+          src="/assets/Gallery/images/Galeri TIS FTUI 2025.png"
+          alt="Gallery Title"
+          width={1000}
+          height={500}
+        />
       </div>
-      <div className="embla overflow-hidden overflow-x-hidden w-full" ref={emblaRef1}>
+      
+      <div className="embla overflow-hidden overflow-x-hidden w-full mb-23 cursor-grab active:cursor-grabbing" ref={emblaRef1}>
         <div className="embla__container flex">
           {images1.map((src, index) => (
             <div key={index} className={`embla__slide flex-none ${imageWidths[src]} mr-11 relative h-[52vh] rounded-xl overflow-hidden`}>
@@ -91,7 +97,13 @@ export function Gallery() {
         </div>
       </div>
 
-      <div className="embla overflow-hidden overflow-x-hidden w-full" ref={emblaRef2}>
+      <div className="italic font-extrabold text-[#383A85] text-5xl inline-block p-3 px-4 ml-12 relative">
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#F2B134] to-[#FFDD31]"></div>
+        <div className="absolute inset-1.5 rounded-xl bg-white"></div>
+        <span className="relative">Dari tahun ke tahun...</span>
+      </div>
+
+      <div className="embla overflow-hidden overflow-x-hidden w-full cursor-grab active:cursor-grabbing" ref={emblaRef2}>
         <div className="embla__container flex">
           {images2.map((src, index) => (
             <div key={index} className={`embla__slide flex-none ${imageWidths[src]} mr-11 relative h-[52vh] rounded-xl overflow-hidden`}>
@@ -107,6 +119,14 @@ export function Gallery() {
           ))}
         </div>
       </div>
+
+      <div className="italic  ml-140 py-4 font-extrabold text-[#383A85] text-4xl inline-block">
+        ... Dan untuk banyaknya{" "}
+        <span className="inline-block py-1 px-1 pr-3 pb-2 rounded-xl bg-gradient-to-r from-yellow-400 to-yellow-300">
+          kenangan yang akan datang!
+        </span>
+      </div>
+
     </div>
   )
 }
