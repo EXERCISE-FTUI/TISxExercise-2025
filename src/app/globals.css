@@ -8,3 +8,32 @@
     --color-white: #ffffff;
     --color-lightYellow: #FFFD80
 }
+
+.text-outline {
+  color: #1e3a8a; /* indigo-900  */
+  -webkit-text-stroke: 2px white;
+  text-stroke: 2px white; 
+  position: relative;
+  z-index: 1;
+}
+
+.text-outline-visi {
+  color: white; /* solid dark blue fill */
+  -webkit-text-stroke: 3px #2c2e93; /* white border */
+  text-stroke: 3px #2c2e93;
+  text-shadow:
+    0 0 4px white,  /* inner glow */
+    0 0 8px white, /* mid glow */
+    0 0 10px white; /* outer glow */
+}
+
+/* globals.css */
+.text-outline-glow {
+  color: #2c2e93; /* solid dark blue fill */
+  -webkit-text-stroke: 3px white; /* white border */
+  text-stroke: 3px white;
+  text-shadow:
+    0 0 4px #2c2e93,  /* inner glow */
+    0 0 8px #2c2e93, /* mid glow */
+    0 0 10px #2c2e93; /* outer glow */
+}
