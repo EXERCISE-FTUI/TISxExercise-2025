@@ -11,23 +11,23 @@ const Vision: React.FC = () => {
       {/* -------------- Side Clouds ---------------- */}
 
       {/* LEFT side (mirrored horizontally) */}
-      <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-[200px]">
+      <div className="pointer-events-none absolute left-0 top-0 bottom-0 z-10 w-[450px]">
         <Image
           src="/assets/Staffs/images/cloud.png"
           alt="cloud left"
           fill
-          className="object-contain object-left scale-x-[-1] select-none"
+          className="object-cover object-left scale-x-[-1] select-none"
           priority
         />
       </div>
 
       {/* RIGHT side (normal) */}
-      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-[200px]">
+      <div className="pointer-events-none absolute right-0 top-0 bottom-0 z-10 w-[300px]">
         <Image
           src="/assets/Staffs/images/cloud.png"
           alt="cloud right"
           fill
-          className="object-contain object-right select-none"
+          className="object-cover object-right select-none"
         />
       </div>
 
