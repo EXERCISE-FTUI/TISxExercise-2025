@@ -24,7 +24,7 @@
   text-shadow:
     0 0 4px white,  /* inner glow */
     0 0 8px white, /* mid glow */
-    0 0 10px white; /* outer glow */
+    0 0 7px rgb(0, 0, 0); /* outer glow */
 }
 
 .text-outline-glow {
@@ -55,6 +55,6 @@
     text-shadow:
     0 0 3px white,  /* inner glow */
     0 0 2.5px white, /* mid glow */
-    0 0 4px white; /* outer glow */
+    0 0 3px rgb(0, 0, 0); /* outer glow */
   }
 }
