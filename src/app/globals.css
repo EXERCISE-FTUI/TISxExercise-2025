@@ -27,7 +27,6 @@
     0 0 10px white; /* outer glow */
 }
 
-/* globals.css */
 .text-outline-glow {
   color: #2c2e93; /* solid dark blue fill */
   -webkit-text-stroke: 3px white; /* white border */
@@ -36,4 +35,26 @@
     0 0 4px #2c2e93,  /* inner glow */
     0 0 8px #2c2e93, /* mid glow */
     0 0 10px #2c2e93; /* outer glow */
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .text-outline-glow {
+    -webkit-text-stroke: 1.5px white;
+    text-stroke: 1.5px white;
+    text-shadow:
+      0 0 2px #2c2e93,
+      0 0 2.5px #2c2e93,
+      0 0 3px #2c2e93;
+  }
+
+  .text-outline-visi {
+    color: white; /* solid dark blue fill */
+    -webkit-text-stroke: 1.7px #2c2e93; /* white border */
+    text-stroke: 3px #2c2e93;
+    text-shadow:
+    0 0 3px white,  /* inner glow */
+    0 0 2.5px white, /* mid glow */
+    0 0 4px white; /* outer glow */
+  }
 }
