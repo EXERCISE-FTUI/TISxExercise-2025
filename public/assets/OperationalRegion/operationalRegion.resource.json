@@ -1,0 +1,36 @@
+[
+  {
+    "isComingSoon": false,
+    "name": "RPTRA Seruni",
+    "subtile": "Karang Pola",
+    "images": [
+      "IMG_1185 1.png",
+      "IMG_1188 1.png",
+      "IMG_1189 1.png",
+      "IMG_1223 1.png"
+    ],
+    "location": "Gang Haji Saibun, RT.8/RW.9, Jati Padang, Pasar Minggu",
+    "locationURL": "https://maps.app.goo.gl/EYNKGVnnnpDYFYoMA"
+  },
+  {
+    "isComingSoon": false,
+    "name": "Saungelmu",
+    "subtile": "Manara",
+    "images": [
+      "IMG_1225 1.png",
+      "IMG_1228 1.png",
+      "IMG_1231 1.png",
+      "IMG_1232 1.png"
+    ],
+    "location": "Jl. Menara No. 14, RT.4/RW.8, Jati Padang, Pasar Minggu",
+    "locationURL": "https://maps.app.goo.gl/QdLj14zSaNxFJx1e6"
+  },
+  {
+    "isComingSoon": true,
+    "name": "",
+    "subtile": "",
+    "images": ["IMG_1185 1.png", "IMG_1225 1.png", "IMG_1228 1.png"],
+    "location": "",
+    "locationURL": ""
+  }
+]
