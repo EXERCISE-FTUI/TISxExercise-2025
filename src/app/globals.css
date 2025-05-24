@@ -6,5 +6,10 @@
     --color-skyBlue: #8ACCEF;
     --color-goldenOrange: #F4B132;
     --color-white: #ffffff;
-    --color-lightYellow: #FFFD80
+    --color-lightYellow: #FFFD80;
+    --breakpoint-sm1: 650px;
+    --breakpoint-xsm1: 545px;
+    --breakpoint-xsm2: 455px;
+    --breakpoint-xsm22: 400px;
+    --breakpoint-xsm3: 320px;
 }

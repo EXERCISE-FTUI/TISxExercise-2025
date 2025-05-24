@@ -5,10 +5,13 @@
             "Kepala Sekolah": {
                 "name": "Kepala Sekolah",
                 "desc": "Menjalankan tugas sebagai ketua umum dan mengontrol jalannya organisasi.",
-                "image": "",
+                "image": "/assets/Staffs/images/KepalaSekolah.jpg",
                 "responsibility": [
-                    "mimpin",
-                    "lorem ipsum"
+                    "Menyusun arah strategis lembaga secara kolaboratif dan visioner.",
+                    "Mengawal pelaksanaan program kerja dan kegiatan dengan supervisi aktif.",
+                    "Menjaga koordinasi dan efektivitas tata kelola bidang-bidang.",
+                    "Mewakili lembaga dalam hubungan eksternal sebagai representasi lembaga.",
+                    "Melakukan evaluasi dan menjamin keberlanjutan lembaga."
                 ]
             }
         }
@@ -19,7 +22,10 @@
             "Kebendaharaan": {
                 "name": "Bidang Kebendaharaan",
                 "desc": "Bidang yang menangani administrasi, pengelolaan timeline, dan internalisasi antar pengurus TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Kebendaharaan1.png",
+                    "/assets/Staffs/images/Kebendaharaan2.jpg"
+                ],
                 "responsibility": [
                     "Membuat SOP keuangan.",
                     "Membuat dan mempublikasikan laporan keuangan.",
@@ -33,7 +39,10 @@
             "Kesekretariatan": {
                 "name": "Bidang Kesekretariatan",
                 "desc": "Bidang yang menangani administrasi, pengelolaan timeline, dan internalisasi antar pengurus TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Kesekretariatan1.png",
+                    "/assets/Staffs/images/Kesekretariatan2.png"
+                ],
                 "responsibility": [
                     "Melakukan pencatatan iventarisasi dan revitalisasi sekretariat.",
                     "Merekap timeline program kerja dan kegiatan selama kepungurusan.",
@@ -46,7 +55,10 @@
             "Penelitian dan Pengembangan": {
                 "name": "Bidang Penelitian dan Pengembangan",
                 "desc": "Bidang yang mengawasi dan mengevaluasi kinerja TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Litbang1.jpg",
+                    "/assets/Staffs/images/Litbang2.jpg"
+                ],
                 "responsibility": [
                     "Melakukan pengawasan, evaluasi, dan pengarsipan atas kinerja TIS.",
                     "Melakukan kontrol terhadap pembuatan dan pelaksanaan Kurikulum Kaderisasi.",
@@ -64,7 +76,10 @@
             "Pemberdayaan Masyarakat": {
                 "name": "Bidang Pemberdayaan Masyarakat",
                 "desc": "Bidang yang menangani penyelenggaraan kegiatan bagi masyarakat daerah operasional TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/PM1.jpg",
+                    "/assets/Staffs/images/PM2.png"
+                ],
                 "responsibility": [
                     "Menumbuhkan kepekaan dan mewadahi minat warga IKM FTUI dalam aspek pengabdian masyarakat di bidang pendidikan.",
                     "Melakukan kegiatan pemberdayaan masyarakat berdasarkan kebutuhan warga daerah operasional.",
@@ -76,7 +91,10 @@
             "Kesejahteraan": {
                 "name": "Bidang Kesejahteraan",
                 "desc": "Bidang yang menjembatani kakak asuh dan donatur dengan adik asuh TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Kesejahteraan1.png",
+                    "/assets/Staffs/images/Kesejahteraan2.jpg"
+                ],
                 "responsibility": [
                     "Membuat SOP cara berdonasi.",
                     "Menjaga hubungan TIS dengan Kakak Asuh dan Donatur TIS dengan melakukan apresiasi kepada mereka.",
@@ -88,7 +106,10 @@
             "Pengajaran": {
                 "name": "Bidang Pengajaran",
                 "desc": "Bidang yang menangani penyusunan kurikulum, fasilitas pembelajaran, dan Kesatria Pengajar TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Pengajaran1.png",
+                    "/assets/Staffs/images/Pengajaran2.jpg"
+                ],
                 "responsibility": [
                     "Menyusun rancangan pelaksanaan pengajaran untuk kegiatan belajar mengajar (KBM).",
                     "Membuat kurikulum (bab, materi, dan jadwal) untuk KBM.",
@@ -100,7 +121,10 @@
             "Kesiswaan": {
                 "name": "Bidang Kesiswaan",
                 "desc": "Bidang yang mengawasi, mengevaluasi, dan mengapresiasi adik ajak TIS FTUI.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Kesiswaan1.jpg",
+                    "/assets/Staffs/images/Kesiswaan2.jpg"
+                ],
                 "responsibility": [
                     "Membuat perancangan SOP Humas.",
                     "Menjadi narahubung TIS dengan pengurus daerah operasional.",
@@ -114,7 +138,10 @@
             "Humas": {
                 "name": "Bidang Humas",
                 "desc": "Bidang yang membangun koneksi dan menjalin relasi dengan pihak eksternal.",
-                "image": "",
+                "image": [
+                    "/assets/Staffs/images/Humas1.jpg",
+                    "/assets/Staffs/images/Humas2.png"
+                ],
                 "responsibility": [
                     "Membuat perancangan SOP Humas.",
                     "Menjadi narahubung TIS dengan pengurus daerah operasional.",
@@ -128,7 +155,10 @@
             "Media": {
                 "name": "Bidang Media",
                 "desc": "Bidang yang melakukan publikasi online dan offline, serta merancang visualisasi publikasi.",
-                "image": "contoh.png",
+                "image": [
+                    "/assets/Staffs/images/Media1.jpg",
+                    "/assets/Staffs/images/Media2.png"
+                ],
                 "responsibility": [
                     "Membuat perancangan SOP desain.",
                     "Menjalankan dan mengkoordinasikan publikasi secara fisik dan lewat sosial media.",
