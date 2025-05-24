@@ -60,7 +60,7 @@ export function Gallery() {
       <div className="embla overflow-hidden overflow-x-hidden w-full mb-9 md:mb-23 cursor-grab active:cursor-grabbing" ref={emblaRef1}>
         <div className="embla__container flex">
           {images1.map((src, index) => (
-            <div key={index} className="embla__slide flex-none w-[20vh] md:w-[73vh] mr-3.5 md:mr-11 relative h-[14vh] md:h-[46vh] rounded-sm md:rounded-xl overflow-hidden">
+            <div key={index} className="embla__slide flex-none w-[20vh] md:w-[82vh] mr-3.5 md:mr-11 relative h-[14vh] md:h-[54vh] rounded-sm md:rounded-xl overflow-hidden">
               <Image 
                 src={src}
                 alt={`Gallery image ${index + 1}`}
@@ -83,7 +83,7 @@ export function Gallery() {
       <div className="embla overflow-hidden overflow-x-hidden w-full cursor-grab active:cursor-grabbing" ref={emblaRef2}>
         <div className="embla__container flex">
           {images2.map((src, index) => (
-            <div key={index} className="embla__slide flex-none w-[20vh] md:w-[73vh] mr-3.5 md:mr-11 relative h-[14vh] md:h-[46vh] rounded-sm md:rounded-xl overflow-hidden">
+            <div key={index} className="embla__slide flex-none w-[20vh] md:w-[82vh] mr-3.5 md:mr-11 relative h-[14vh] md:h-[54vh] rounded-sm md:rounded-xl overflow-hidden">
               <Image 
                 src={src}
                 alt={`Gallery image ${index + 1}`}
