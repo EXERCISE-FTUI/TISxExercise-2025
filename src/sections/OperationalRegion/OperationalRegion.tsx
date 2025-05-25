@@ -22,13 +22,13 @@ const OperationalRegion = async () => {
     return (
       <div
         id="operational-region"
-        className="w-full px-0 overflow-hidden py-20 bg-linear-to-b from-iceBlue from-60% to-lightYellow to-90% relative"
+        className="w-full px-0  overflow-hidden py-20 bg-linear-to-b from-iceBlue from-60% to-lightYellow to-90% relative -z-20"
       >
-        <h2 className="text-center text-5xl font-bold text-navyPurple">
+        <h2 className="text-center text-3xl md:text-4xl lg:text-5xl font-bold text-navyPurple relative z-0">
           Daerah Operasional kami...
         </h2>
 
-        <div className="h-[400px] mt-20 w-10/12 mx-auto flex flex-wrap justify-between">
+        <div className="relative z-0 h-auto lg:h-[400px] mt-20 w-full md:w-10/12 max-w-[1200px] mx-auto flex flex-row md:flex-row flex-wrap justify-center lg:justify-between md:jutify-center gap-10 md:gap-5 lg:gap-0">
           {Regions.map((region, index) => (
             <Region
               key={index}
@@ -45,22 +45,22 @@ const OperationalRegion = async () => {
 
         {/* Left Stars */}
         <div>
-          <img src="/assets/OperationalRegion/star.svg" className="h-8 absolute left-[1vw] top-5 rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-6 absolute left-[5vw] top-2 -rotate-90" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-20 absolute left-[8vw] top-5 -rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute left-[3vw] top-14 rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-10 absolute left-[7vw] top-26 rotate-90" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute left-[1vw] top-34 rotate-45" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-22 md:h-8 absolute left-[5vw] md:left-[1vw] top-[30vw] md:top-5 rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-12 md:h-6 absolute left-[5vw] top-[60vw] md:top-2 -rotate-90 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-20 absolute -left-10 md:left-[8vw] top-[100vw] md:top-5 -rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute left-[3vw] top-[130vw] md:top-14 rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-10 absolute -left-6 md:left-[7vw] top-[150vw] md:top-26 rotate-90 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="hidden md:block h-12 absolute left-[1vw] top-34 rotate-45 -z-10" alt="" />
         </div>
 
         {/* Right Stars */}
         <div className="">
-          <img src="/assets/OperationalRegion/star.svg" className="h-8 absolute right-[1vw] top-5 rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-6 absolute right-[5vw] top-2 -rotate-90" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-20 absolute right-[8vw] top-5 -rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute right-[3vw] top-14 rotate-12" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-10 absolute right-[7vw] top-26 rotate-90" alt="" />
-          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute right-[1vw] top-34 rotate-45" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-22 md:h-8 absolute right-[5vw] md:right-[1vw] top-[30vw] md:top-5 rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-12 md:h-6 absolute right-[5vw] top-[60vw] md:top-2 -rotate-90 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-20 absolute -right-10 md:right-[8vw] top-[100vw] md:top-5 -rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-12 absolute right-[3vw] top-[130vw] md:top-14 rotate-12 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="h-10 absolute -right-6 md:right-[7vw] top-[150vw] md:top-26 rotate-90 -z-10" alt="" />
+          <img src="/assets/OperationalRegion/star.svg" className="hidden md:block h-12 absolute right-[1vw] top-34 rotate-45 -z-10" alt="" />
 
         </div>
       </div>

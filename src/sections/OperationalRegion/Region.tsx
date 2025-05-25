@@ -31,11 +31,11 @@ const Region: React.FC<PropType> = (props) => {
     useDotButton(emblaApi);
 
   return (
-    <div className="w-[32%] h-full my-auto">
+    <div className="w-[60%] md:w-[45%] lg:w-[32%] min-h-fit md:h-full my-auto ">
       <div className="h-16">
         {!isComingSoon ? (
           <>
-            <p className="text-navyPurple font-bold text-4xl text-center textstroke-white textstrokewidth-[1px] ">
+            <p className="text-navyPurple font-bold text-3xl md:text-4xl text-center textstroke-white textstrokewidth-[1px] ">
               {name}
             </p>
             <p className="text-navyPurple text-center text-xl font-semibold">
