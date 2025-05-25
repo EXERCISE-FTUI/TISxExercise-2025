@@ -35,7 +35,7 @@ const Region: React.FC<PropType> = (props) => {
       <div className="h-16">
         {!isComingSoon ? (
           <>
-            <p className="text-navyPurple font-bold text-3xl text-center">
+            <p className="text-navyPurple font-bold text-4xl text-center textstroke-white textstrokewidth-[1px] ">
               {name}
             </p>
             <p className="text-navyPurple text-center text-xl font-semibold">

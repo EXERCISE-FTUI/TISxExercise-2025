@@ -9,3 +9,17 @@
   --color-white: #ffffff;
   --color-lightYellow: #fffd80;
 }
+
+/* Textstroke for outlined title */
+@utility textstroke-* {
+  -webkit-text-stroke-color: --value(--color-*);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+}
+
+@utility textstrokewidth-* {
+  -webkit-text-stroke-width:--value([*]);
+}
+
+.textstrokefill {
+  paint-order: stroke fill ;
+}

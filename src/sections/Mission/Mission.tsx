@@ -1,6 +1,4 @@
 import React from "react";
-import "./Mission.css";
-import "./MissionList";
 import MissionList from "./MissionList";
 
 const MissionData: string[] = [
@@ -13,8 +11,8 @@ const MissionData: string[] = [
 
 const Mission = () => {
   return (
-    <div id="mission" className="w-screen bg-[#F4FAFD] py-10">
-      <h2 className="text-center text-7xl italic font-extrabold textstroke-blue text-white ">
+    <div id="mission" className="w-screen bg-iceBlue py-10">
+      <h2 className="text-center text-7xl italic font-extrabold textstroke-navyPurple textstrokewidth-[8px] textstrokefill text-white ">
         MISI
       </h2>
       <p className="text-2xl text-center text-navyPurple font-semibold">
