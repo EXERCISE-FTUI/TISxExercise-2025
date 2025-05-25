@@ -268,7 +268,7 @@ const handleNextDivision = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 px-0 md:pr-[6%] md:pt-3">
           {/* If small screen */}
           <h1
-              className="text-[#000056] text-center italic sm1:text-[clamp(2px,2.5vw,32px)] xsm3:text-[clamp(2px,5vw,32px)] leading-normal md:hidden visible "
+              className="text-[#000056] pt-3 text-center italic sm1:text-[clamp(2px,2.5vw,32px)] xsm3:text-[clamp(2px,5vw,32px)] leading-normal md:hidden visible "
               style={{
                 fontFamily: 'Poppins, sans-serif',
                 textShadow: '0px 6px 10px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.30)',
@@ -296,7 +296,7 @@ const handleNextDivision = () => {
                 key={`${currentDivisionIndex}-${currentImageIndex}-${imageLoadAttempt}`}
                 src={getImageUrl(images[currentImageIndex])}
                 alt={currentDivision.name}
-                className="md:flex md:justify-self-end md:w-[17vw] md:h-full h-[100%] md:max-h-full sm1:w-[30%] xsm1:w-[30%] max-h-[90%] md:object-cover object-fill md:mx-0 mx-auto rounded-[30px] border border-[#383F96] shadow-[0px_0px_34.5px_0px_rgba(0,0,0,0.25)]" 
+                className="md:flex md:justify-self-end md:w-[17vw] md:h-full h-[100%] md:max-h-full sm1:w-[30%] xsm1:w-[30%] max-h-[90%] md:object-cover object-cover md:mx-0 mx-auto rounded-[30px] border border-[#383F96] shadow-[0px_0px_34.5px_0px_rgba(0,0,0,0.25)]" 
                 style={{
                   opacity: 1,
                   // transition: 'opacity 200ms ease-in-out',
@@ -366,7 +366,7 @@ const handleNextDivision = () => {
               </ol>
             </div>
           </div>
-          <div className='md:block hidden mr-[50%]'><ImagePaginationDots /></div>
+          <div className='md:block hidden mr-[30%]'><ImagePaginationDots /></div>
           <PaginationDots />
         </div>
       </div>
