@@ -11,18 +11,23 @@ const MissionData: string[] = [
 
 const Mission = () => {
   return (
-    <div id="mission" className="w-screen bg-iceBlue py-10">
-      <h2 className="text-center text-7xl italic font-extrabold textstroke-navyPurple textstrokewidth-[8px] textstrokefill text-white ">
+    <div id="mission" className="w-screen bg-iceBlue py-15 relative">
+      <h2 className="text-center text-7xl italic font-extrabold textstroke-navyPurple textstrokewidth-[8px] textstrokefill text-white">
         MISI
       </h2>
       <p className="text-2xl text-center text-navyPurple font-semibold">
         TIS FTUI 2025
       </p>
 
-      <div className="w-6/12 mx-auto flex flex-col gap-2">
+      <div className="w-7/12 mx-auto flex flex-col gap-2 relative z-10">
         {MissionData.map((value: string, index: number) => (
           <MissionList key={index} order={index + 1} point={value} />
         ))}
+      </div>
+
+      <div className="">
+        <img src="/assets/Mission/airplane-flare.svg" alt="" className="absolute w-[25vw] top-28 left-0 "/>
+        <img src="/assets/Mission/paper-airplane.svg" alt="" className="absolute h-48 top-28 left-[25vw] -translate-y-[70%] -translate-x-5"/>
       </div>
     </div>
   );
