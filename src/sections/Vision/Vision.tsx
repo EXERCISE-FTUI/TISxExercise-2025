@@ -28,21 +28,22 @@ const Vision: React.FC = () => {
 
       {/* -------------- banner content ------------- */}
       <div className="relative z-10 mx-auto max-w-5xl px-5 py-4 md:py-12 flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
-        {/* Modified heading container */}
+        {/* Modified heading container with safer margins */}
         <div className="shrink-0 flex flex-row items-end gap-2 md:flex-col md:items-start md:text-left">
           <div className="text-[2.5rem] sm:text-[3.5rem] md:text-[5rem] leading-none italic font-extrabold uppercase text-indigo-900 text-outline-visi">
             VISI
           </div>
-          <div className="text-l sm:text-2xl md:text-4xl font-semibold text-indigo-900 md:pb-0 md:pr-5 md:-ml-7">
+          <div className="text-lg sm:text-2xl md:text-3xl font-semibold text-indigo-900 md:pb-0 md:ml-0 md:pl-1"> {/* Changed from -ml-7 to pl-1 */}
             TIS&nbsp;FTUI&nbsp;2025
           </div>
         </div>
 
-        <div className="md:pl-6 w-full max-w-[85vw] sm:max-w-none">
+        {/* Paragraph container with adjusted max-width */}
+        <div className="md:pl-6 w-full max-w-[90%] sm:max-w-[95%] md:max-w-none">
           <p className="text-xs sm:text-sm md:text-lg font-semibold leading-tight sm:leading-normal text-indigo-900 text-justify">
-          Terciptanya TIS FTUI sebagai lembaga pengabdian masyarakat yang
-          berdedikasi penuh untuk menjembatani asa dengan partisipasi
-          kolaboratif guna mewujudkan dampak yang menyeluruh dan penuh makna.
+            Terciptanya TIS FTUI sebagai lembaga pengabdian masyarakat yang
+            berdedikasi penuh untuk menjembatani asa dengan partisipasi
+            kolaboratif guna mewujudkan dampak yang menyeluruh dan penuh makna.
           </p>
         </div>
       </div>
