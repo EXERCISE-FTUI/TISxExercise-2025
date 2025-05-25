@@ -18,7 +18,6 @@ const OperationalRegion = async () => {
       "./public/assets/OperationalRegion/operationalRegion.resource.json",
       "utf-8"
     );
-    console.log(JSON.parse(fileContent));
     const Regions: OperationalRegionType[] = JSON.parse(fileContent);
     return (
       <div
@@ -42,14 +41,6 @@ const OperationalRegion = async () => {
               locationURL={region.locationURL}
             />
           ))}
-
-          {/* <Region
-            isComingSoon={false}
-            name={"RPTRA Seruni"}
-            subtile={"Karang Pola"}
-            images={images}
-            options={{ loop: true }}
-          /> */}
         </div>
       </div>
     );
