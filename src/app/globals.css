@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @theme{
     --color-navyPurple: #383A85;
     --color-softBlue: #5E8BBA;
