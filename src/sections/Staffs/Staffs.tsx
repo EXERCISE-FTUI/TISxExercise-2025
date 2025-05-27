@@ -31,26 +31,30 @@ const Staffs = () => {
     return () => window.removeEventListener("resize", updateStroke);
   }, []);
 
-  useEffect(() => {
-    if (selectedTab) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'auto';
-    }
+useEffect(() => {
+  if (selectedTab) {
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  }
 
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
-  }, [selectedTab]);
+  return () => {
+    document.body.style.overflow = "auto";
+    document.documentElement.style.overflow = "auto";
+  };
+}, [selectedTab]);
+
 
 
   return (
     <>
-      <div id="operational-region" className="min-h-[50%] max-w-screen">
+      <div id="operational-region" className="min-h-[50%] w-full">
         {/* JUDUL */}
         <div className="flex justify-center px-3 bg-[#FFFD80]">
           <h1
-            className="text-[clamp(10px,7vw,200px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_7px_#000056] font-poppins"
+            className="text-[clamp(34px,7vw,200px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_7px_#000056] font-poppins"
             style={{
               WebkitTextStroke: `${strokeWidth} #FFF`,
             }}

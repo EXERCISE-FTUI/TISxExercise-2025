@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const Vision: React.FC = () => {
   return (
-    <section id="vision" className="relative isolate w-screen overflow-hidden bg-[#FFF86F]">
+    <section id="vision" className="relative w-full overflow-hidden bg-[#FFF86F]">
       {/* -------------- Side Clouds ---------------- */}
       {/* LEFT cloud - adjusted position */}
       <div className="pointer-events-none absolute left-0 top-1/2 -translate-y-1/2 z-0 w-[110px] h-[225px] sm:w-[180px] sm:h-[180px] md:w-[250px] md:h-[300px]">

@@ -1,5 +1,5 @@
 import React, {
-  ComponentPropsWithRef,
+  // ComponentPropsWithRef,
   useCallback,
   useEffect,
   useState,
@@ -7,6 +7,7 @@ import React, {
 import { EmblaCarouselType } from "embla-carousel";
 import { Circle } from "@phosphor-icons/react";
 
+// === Hook for dot navigation ===
 type UseDotButtonType = {
   selectedIndex: number;
   scrollSnaps: number[];
@@ -29,12 +30,12 @@ export const useDotButton = (
     [emblaApi, onButtonClick]
   );
 
-  const onInit = useCallback((emblaApi: EmblaCarouselType) => {
-    setScrollSnaps(emblaApi.scrollSnapList());
+  const onInit = useCallback((api: EmblaCarouselType) => {
+    setScrollSnaps(api.scrollSnapList());
   }, []);
 
-  const onSelect = useCallback((emblaApi: EmblaCarouselType) => {
-    setSelectedIndex(emblaApi.selectedScrollSnap());
+  const onSelect = useCallback((api: EmblaCarouselType) => {
+    setSelectedIndex(api.selectedScrollSnap());
   }, []);
 
   useEffect(() => {
@@ -43,7 +44,15 @@ export const useDotButton = (
     onInit(emblaApi);
     onSelect(emblaApi);
 
-    emblaApi.on("reInit", onInit).on("reInit", onSelect).on("select", onSelect);
+    emblaApi.on("reInit", onInit);
+    emblaApi.on("reInit", onSelect);
+    emblaApi.on("select", onSelect);
+
+    return () => {
+      emblaApi.off("reInit", onInit);
+      emblaApi.off("reInit", onSelect);
+      emblaApi.off("select", onSelect);
+    };
   }, [emblaApi, onInit, onSelect]);
 
   return {
@@ -53,16 +62,20 @@ export const useDotButton = (
   };
 };
 
-type PropType = {
+// === Dot Button Component ===
+type DotButtonProps = {
   selected: boolean;
   onClick: () => void;
 };
 
-export const DotButton: React.FC<PropType> = (props) => {
-  const { selected, onClick } = props;
-
+export const DotButton: React.FC<DotButtonProps> = ({ selected, onClick }) => {
   return (
-    <button type="button" onClick={onClick} className="px-2">
+    <button
+      type="button"
+      onClick={onClick}
+      className="px-2"
+      aria-label="Go to slide"
+    >
       <Circle
         size={10}
         color={selected ? "#383F96" : "#A8ACD8"}

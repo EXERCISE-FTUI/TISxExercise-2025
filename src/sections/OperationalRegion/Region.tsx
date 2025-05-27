@@ -5,7 +5,7 @@ import useEmblaCarousel from "embla-carousel-react";
 import { DotButton, useDotButton } from "./CarouselButton";
 import Autoplay from "embla-carousel-autoplay";
 
-type PropType = {
+type RegionProps = {
   options?: EmblaOptionsType;
   isComingSoon?: boolean;
   name?: string;
@@ -15,35 +15,33 @@ type PropType = {
   locationURL?: string;
 };
 
-const Region: React.FC<PropType> = (props) => {
-  const {
-    isComingSoon,
-    name,
-    subtile,
-    images,
-    options,
-    location,
-    locationURL,
-  } = props;
+const Region: React.FC<RegionProps> = ({
+  options,
+  isComingSoon = false,
+  name = "",
+  subtile = "",
+  images,
+  location,
+  locationURL,
+}) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
-
   const { selectedIndex, scrollSnaps, onDotButtonClick } =
     useDotButton(emblaApi);
 
   return (
-    <div className="w-[60%] md:w-[45%] lg:w-[32%] min-h-fit md:h-full my-auto ">
-      <div className="h-16">
+    <div className="w-[60%] md:w-[45%] lg:w-[30%] min-h-fit md:h-full my-auto">
+      <div className="h-16 text-center">
         {!isComingSoon ? (
           <>
-            <p className="text-navyPurple font-bold text-3xl md:text-4xl text-center textstroke-white textstrokewidth-[1px] ">
-              {name}
-            </p>
-            <p className="text-navyPurple text-center text-xl font-semibold">
-              ({subtile})
+            <h2 className="text-navyPurple font-bold text-3xl md:text-4xl textstroke-white textstrokewidth-[1px] truncate">
+              {name || "Unnamed Region"}
+            </h2>
+            <p className="text-navyPurple text-xl font-semibold truncate">
+              {subtile || "(No subtitle)"}
             </p>
           </>
         ) : (
-          <p className="text-navyPurple text-center text-2xl font-semibold mt-auto">
+          <p className="text-navyPurple text-2xl font-semibold mt-auto">
             Akan mendatang
           </p>
         )}
@@ -58,35 +56,51 @@ const Region: React.FC<PropType> = (props) => {
                 key={index}
               >
                 <img
-                  className={"embla__slide__img object-cover h-full w-full".concat(
+                  className={`embla__slide__img object-cover h-full w-full${
                     isComingSoon ? " grayscale" : ""
-                  )}
-                  src={`/assets/OperationalRegion/images/${value}`}
-                  alt={`Operational Region ${name} - ${index}`}
+                  }`}
+                  src={`/assets/OperationalRegion/images/${encodeURIComponent(
+                    value
+                  )}`}
+                  alt={`Operational Region ${name || "unknown"} - ${index + 1}`}
                   loading="lazy"
                 />
               </div>
             ))}
           </div>
         </div>
-        <div className="embla__dots absolute bottom-0 left-0 p-2">
-          {scrollSnaps.map((_, index) => (
-            <DotButton
-              key={index}
-              onClick={() => onDotButtonClick(index)}
-              selected={selectedIndex === index}
-            />
-          ))}
-        </div>
+
+        {scrollSnaps.length > 1 && (
+          <div className="embla__dots absolute bottom-0 left-0 p-2 flex gap-1">
+            {scrollSnaps.map((_, index) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                selected={selectedIndex === index}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
-      {!isComingSoon ? (
-        <a href={locationURL}>
-          <p className="text-center text-navyPurple underline">{location}</p>
-        </a>
-      ) : (
-        <p className="text-center text-navyPurple">(dalam proses)</p>
-      )}
+      <div className="text-center text-navyPurple">
+        {!isComingSoon ? (
+          locationURL ? (
+            <a
+              href={locationURL}
+              className="underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {location || "Location not available"}
+            </a>
+          ) : (
+            <p>{location || "Location not available"}</p>
+          )
+        ) : (
+          <p>(dalam proses)</p>
+        )}
+      </div>
     </div>
   );
 };

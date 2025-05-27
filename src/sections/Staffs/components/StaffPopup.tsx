@@ -159,7 +159,7 @@ const handleNextDivision = () => {
   );
 };
 
-  // pagination dots 
+  // pagination dots
   const ImagePaginationDots: React.FC<{}> = () => {
     const totalPages = images.length;
     return (

@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const History = () => {
   return (
-    <div id="historytis" className="w-screen mt-7 md:mt-12">
+    <div id="historytis" className="w-full mt-7 md:mt-12">
       <div className="relative flex justify-center">
         <Image
           src="/assets/History/images/Group 809.png"
@@ -32,10 +32,10 @@ const History = () => {
               alt="2005"
               width={180}
               height={180}
-              className="w-17 md:w-[180px] -mt-[100px] md:-mt-[300px] mr-58 md:mr-245"
+              className="w-17 md:w-[180px] mt-[100px] md:-mt-[300px] mr-58 md:mr-245"
             />
             <div className="mr-12 md:mr-32">
-              <div className="text-xl md:text-[3.5rem] font-bold text-shadow-lg text-[#383A85] ml-20 md:ml-0 -mt-6 md:-mt-[67px] text-left">
+              <div className="text-xl md:text-[3.5rem] font-bold text-shadow-lg text-[#383A85] ml-20 md:ml-0 mt-6 md:-mt-[67px] text-left">
                 Awal Mula TIS
               </div>
               <div className="text-xs md:text-[2rem] w-63 md:w-[600px] text-[#383A85] mt-2.5 md:mt-0 leading-normal text-left">
