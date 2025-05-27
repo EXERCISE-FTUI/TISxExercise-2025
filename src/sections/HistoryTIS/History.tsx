@@ -60,7 +60,7 @@ const History = () => {
               height={180}
               className="w-15 md:w-[180px] ml-67 md:ml-[31rem] lg:ml-240 pb-24"
             />
-            <div className="ml-2 md:ml-0 -mt-24">
+            <div className="ml-2 md:ml-0 -mt-24 md:mt-0 lg:-mt-24">
               <div className="text-xl md:text-[2.5rem] lg:text-[3.5rem] font-bold text-shadow-lg text-[#383A85] mr-18 md:mr-0 -mt-[25px] md:-mt-[65px] text-right">
                 Perpustakaan Terbuka
               </div>
