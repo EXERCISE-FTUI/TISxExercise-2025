@@ -1,6 +1,5 @@
 'use client';
 import React from 'react';
-import IMG_1400 from './IMG_1400.jpg';
 
 const Hero = () => {
   return (
@@ -55,7 +54,7 @@ const Hero = () => {
         }}
       >
         <img
-          src="https://res-console.cloudinary.com/dlbv6554z/thumbnails/v1/image/upload/v1748104985/Ym15YjF1cGh5YTBnamtpazJtY2w=/drilldown"
+          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748107897/awan_kanan_k90wsh.png"
           alt="Clouds right"
           style={{
             width: '100%',
