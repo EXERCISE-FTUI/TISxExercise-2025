@@ -91,12 +91,12 @@ useEffect(() => {
               className="fixed inset-0 flex items-center justify-center backdrop-blur-xs bg-black/30 z-40"
             >
               <div
-                className="md:relative py-11 md:px-20 px-10 rounded-md shadow-lg bg-[#F4FAFD] md:min-h-[42vw] min-h-screen md:w-[90%] w-full flex flex-col justify-center overflow-y-auto overflow-x-hidden"
+                className="md:relative py-11 md:px-20 px-10 rounded-[20px] shadow-lg bg-[#F4FAFD] md:min-h-[42vw] min-h-[screen] md:w-[90%] w-[93%] flex flex-col justify-center overflow-y-auto overflow-x-hidden"
                 onClick={(e) => e.stopPropagation()}
               >
                 <button
                   onClick={() => handleTabClick(selectedTab)}
-                  className="absolute top-1 right-1 md:mr-[2%] mr-[5%]  text-[#676767] text-[300%] font-extralight"
+                  className="absolute md:top-1 md:right-1 top-18 right-2 md:mr-[2%] mr-[5%]  text-[#676767] text-[300%] font-extralight"
                 >
                   &times;
                 </button>
