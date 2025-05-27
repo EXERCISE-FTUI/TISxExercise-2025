@@ -6,7 +6,7 @@ const Hero = () => {
     <div id="hero" className="relative w-screen h-screen -mb-12 overflow-visible">
       <div className="absolute inset-0">
         <img 
-          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748103257/jmgbsps5z4v6f3rixbo2.png"
+          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748368452/image_5_1_kyxv7t.png"
           alt="Hero Background" 
           className="w-full h-full object-cover"
         />

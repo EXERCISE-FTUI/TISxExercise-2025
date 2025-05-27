@@ -28,7 +28,7 @@ const WhatIsTIS = () => {
         className="absolute z-10 transition-transform duration-100 ease-out"
         style={{
           bottom: '25%',
-          right: '10%',
+          right: '5%',
           width: '30%',
           height: '30%',
           transform: `translateX(${-scrollY * 0.15}px)`
@@ -43,10 +43,10 @@ const WhatIsTIS = () => {
 
       {/* Animated cloud decoration */}
       <div 
-        className="absolute bottom-0 left-0 z-[5] transition-transform duration-100 ease-out"
+        className="absolute bottom-0 left-50 z-[5] transition-transform duration-100 ease-out"
         style={{
           width: '150%',
-          transform: `translateX(${-scrollY * 0.4}px)`
+          transform: `translateX(${-scrollY * 0.3}px)`
         }}
       >
         <img 
