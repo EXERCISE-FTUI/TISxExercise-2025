@@ -1,4 +1,4 @@
-import React from "react";
+"use client";
 import Hero from '@/sections/Hero/Hero'
 import WhatIsTIS from '@/sections/WhatIsTIS/WhatIsTIS';
 import Values from '@/sections/Values/Values';
@@ -8,8 +8,7 @@ import OperationalRegion from '@/sections/OperationalRegion/OperationalRegion';
 import Staffs from '@/sections/Staffs/Staffs';
 import Gallery from '@/sections/Gallery/Gallery';
 import History from '@/sections/HistoryTIS/History';
-
-const page = () => {
+const Page = () => {
   return (
     <div className="w-full min-h-screen flex flex-col ">
       <Hero/>
@@ -17,12 +16,11 @@ const page = () => {
       <Values/>
       <Vision/>
       <Mission/>
-      <OperationalRegion/>
+      {/* <OperationalRegion/> */}
       <Staffs/>
       <Gallery/>
       <History/>
     </div>
   );
 };
-
-export default page;
+export default Page;
