@@ -4,11 +4,11 @@ const Values: React.FC = () => {
   return (
     <section id="values" className="w-full py-8 md:py-16 bg-sky-50">
       {/* Title row */}
-      <div className="mb-3 max-w-7xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row sm:items-end gap-1 sm:gap-4">
+      <div className="mb-3 max-w-7xl mx-auto px-4 sm:px-6 flex sm:flex-row sm:items-end gap-1 sm:gap-4">
         <h2 className="text-4xl sm:text-5xl md:text-8xl font-extrabold italic uppercase leading-none text-outline-glow">
           NILAI
         </h2>
-        <span className="text-lg sm:text-xl md:text-3xl sm:pb-1 font-semibold text-indigo-900">
+        <span className="text-lg sm:text-xl md:text-3xl sm:pb-1 font-semibold text-indigo-900 self-end">
           TIS FTUI 2025
         </span>
       </div>

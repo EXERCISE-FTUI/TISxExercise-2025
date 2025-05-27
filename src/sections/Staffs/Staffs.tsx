@@ -54,7 +54,7 @@ useEffect(() => {
         {/* JUDUL */}
         <div className="flex justify-center px-3 bg-[#FFFD80]">
           <h1
-            className="text-[clamp(34px,7vw,200px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_7px_#000056] font-poppins"
+            className="text-[clamp(34px,7vw,200px)] text-center font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_7px_#000056] font-poppins"
             style={{
               WebkitTextStroke: `${strokeWidth} #FFF`,
             }}
@@ -96,7 +96,7 @@ useEffect(() => {
               >
                 <button
                   onClick={() => handleTabClick(selectedTab)}
-                  className="absolute md:top-1 md:right-1 top-18 right-2 md:mr-[2%] mr-[5%]  text-[#676767] text-[300%] font-extralight"
+                  className="absolute md:top-1 md:right-1 top-12 right-2 md:mr-[2%] mr-[5%]  text-[#676767] text-[300%] font-extralight"
                 >
                   &times;
                 </button>

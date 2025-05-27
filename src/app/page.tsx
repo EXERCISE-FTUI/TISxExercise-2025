@@ -10,7 +10,7 @@ import Gallery from '@/sections/Gallery/Gallery';
 import History from '@/sections/HistoryTIS/History';
 const Page = () => {
   return (
-    <div className="w-full min-h-screen flex flex-col ">
+    <div className="w-full min-h-screen flex flex-col overflow-x-hidden">
       <Hero/>
       <WhatIsTIS/>
       <Values/>
