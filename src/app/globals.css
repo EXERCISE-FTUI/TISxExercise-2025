@@ -1,12 +1,13 @@
 @import "tailwindcss";
 
-@theme{
-    --color-navyPurple: #383A85;
-    --color-softBlue: #5E8BBA;
-    --color-skyBlue: #8ACCEF;
-    --color-goldenOrange: #F4B132;
-    --color-white: #ffffff;
-    --color-lightYellow: #FFFD80
+@theme {
+  --color-navyPurple: #383a85;
+  --color-softBlue: #5e8bba;
+  --color-skyBlue: #8accef;
+  --color-iceBlue: #f4fafd;
+  --color-goldenOrange: #f4b132;
+  --color-white: #ffffff;
+  --color-lightYellow: #fffd80;
 }
 
 .text-outline {
@@ -57,4 +58,17 @@
     0 0 2.5px white, /* mid glow */
     0 0 3px rgb(0, 0, 0); /* outer glow */
   }
+}
+/* Textstroke for outlined title */
+@utility textstroke-* {
+  -webkit-text-stroke-color: --value(--color-*);
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.50);
+}
+
+@utility textstrokewidth-* {
+  -webkit-text-stroke-width:--value([*]);
+}
+
+.textstrokefill {
+  paint-order: stroke fill ;
 }
