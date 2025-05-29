@@ -1,13 +1,12 @@
 'use client';
 import React from 'react';
-import IMG_1400 from './IMG_1400.jpg';
 
 const Hero = () => {
   return (
     <div id="hero" className="relative w-screen h-screen -mb-12 overflow-visible">
       <div className="absolute inset-0">
         <img 
-          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748103257/jmgbsps5z4v6f3rixbo2.png"
+          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748368452/image_5_1_kyxv7t.png"
           alt="Hero Background" 
           className="w-full h-full object-cover"
         />
@@ -55,7 +54,7 @@ const Hero = () => {
         }}
       >
         <img
-          src="https://res-console.cloudinary.com/dlbv6554z/thumbnails/v1/image/upload/v1748104985/Ym15YjF1cGh5YTBnamtpazJtY2w=/drilldown"
+          src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748107897/awan_kanan_k90wsh.png"
           alt="Clouds right"
           style={{
             width: '100%',
