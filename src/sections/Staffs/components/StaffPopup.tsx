@@ -216,7 +216,7 @@ const handleNextDivision = () => {
       {/* Title */}
       <div className="hidden md:flex md:justify-center">
         <h1
-          className="md:text-[clamp(10px,4vw,10000px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_0px_5px_#000056] font-poppins"
+          className="md:text-[clamp(10px,4vw,1000px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_0px_5px_#000056] font-poppins"
           style={{
             WebkitTextStroke: `clamp(0.6px, 0.2vw + 0.4px, 3px) #FFF`,
           }}
@@ -227,7 +227,7 @@ const handleNextDivision = () => {
 
       {/* Tabs */}
       <div className='w-full flex justify-center items-center'>
-        <div className="flex justify-between place-self-center gap-4 w-[45%] mt-4">
+        <div className="flex justify-between  gap-[5%]  lg:w-[40rem] md:w-[36rem] sm:w-lg xsm1:w-[70%] w-[80%] mt-4 text-sm md:text-md lg:text-lg">
           {/* <div className=" place-self-center md:mb-3 mb-[1%] md:mt-[3%]  mt-0 md:mx-[1%] md:max-h-8 max-h-[30px] w-full max-w-md sm1:max-w-[70%] md:max-w-2xl grid md:justify-normal justify-items-center grid-cols-3 text-[#383A85] md:text-[clamp(2px,1.2vw,100px)]  xsm1:text-[clamp(2px,2.15vw,100px)] text-[clamp(2px,2.7vw,100px)] md:gap-[6%] sm1:gap-[10%] gap-[3%]"> */}
           {tabs.map((tab) => (
             <button
@@ -288,7 +288,7 @@ const handleNextDivision = () => {
               </>
             )}
           </h1>
-          <p className="text-[#383A85] pb-[1%] text-center font-normal leading-relaxed md:text-[clamp(2px,1vw,90px)] sm1:text-[clamp(2px,1.8vw,90px)] xsm1:text-[clamp(2px,2vw,90px)] xsm2:text-[clamp(2px,2.3vw,90px)] xsm3:text-[clamp(5px,2.4vw,90px)] text-[clamp(5px,2vw,90px)]  font-poppins md:hidden visible xsm1:px-10 px-1">
+          <p className="text-[#383A85] pb-[1%] text-center font-normal leading-relaxed text-sm md:text-md lg:text-lg sm1:text-[clamp(2px,1.8vw,90px)] xsm1:text-[clamp(2px,2vw,90px)] xsm2:text-[clamp(2px,2.3vw,90px)] xsm3:text-[clamp(5px,2.4vw,90px)] text-[clamp(5px,2vw,90px)]  font-poppins md:hidden visible xsm1:px-10 px-1">
             {currentDivision.desc}
           </p>
 
@@ -336,7 +336,7 @@ const handleNextDivision = () => {
           <div className="md:col-span-2 col-span-1 flex flex-col gap-1">
             {/* Division Name Normal screen*/}
             <h1
-              className="text-[#000056] text-center italic text-[clamp(2px,2vw,32px)] leading-normal md:block hidden"
+              className="text-[#000056] text-center italic lg:text-[1.5rem]  md:text-[1.375rem] leading-normal md:block hidden"
               style={{
                 fontFamily: "Poppins, sans-serif",
                 textShadow:
@@ -354,12 +354,12 @@ const handleNextDivision = () => {
             </h1>
 
             {/* Description Normal screen */}
-            <p className="text-[#383A85] text-center font-normal leading-relaxed text-[clamp(2px,1vw,20px)] font-poppins md:block hidden">
+            <p className="text-[#383A85] text-center font-normal leading-relaxed md:text-sm lg:text-md font-poppins md:block hidden">
               {currentDivision.desc}
             </p>
 
             <div className="bg-[#8ACCEF] text-[#000056] rounded-md pl-2 pr-2 p-1 place-self-start md:mx-0 mx-auto mt-4">
-              <h2 className="md:text-[clamp(2px,1.2vw,90px)] sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.3vw,90px)] text-[clamp(10px,1.3vw,90px)] text-[#000056] font-bold">
+              <h2 className="text-sm md:text-md lg:text-lg  sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.3vw,90px)] text-[clamp(10px,1.3vw,90px)] text-[#000056] font-bold">
                 Tugas
               </h2>
             </div>
@@ -371,7 +371,7 @@ const handleNextDivision = () => {
                   (task: string, index: number) => (
                     <li
                       key={index}
-                      className="md:text-[clamp(2px,1vw,90px)] sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.8vw,90px)] xsm2:text-[clamp(2px,2vw,90px)] xsm3:text-[clamp(5px,2.4vw,90px)] text-[clamp(5px,2.4vw,90px)] font-normal"
+                      className="text-sm lg:text-sm sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.8vw,90px)] xsm2:text-[clamp(2px,2vw,90px)] xsm3:text-[clamp(5px,2.4vw,90px)] text-[clamp(5px,2.4vw,90px)] font-normal"
                     >
                       {task}
                     </li>
