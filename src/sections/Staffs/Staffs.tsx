@@ -10,12 +10,24 @@ type TabType = 'kepala' | 'internal' | 'external';
 const Staffs = () => {
   const [strokeWidth, setStrokeWidth] = useState("2px");
   const [selectedTab, setSelectedTab] = useState<TabType | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const { setPopupVisible } = usePopup();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768); // sesuai breakpoint Tailwind md
+      setPopupVisible(false); // reset popup visibility on resize
+    };
+    handleResize(); // run on mount
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
 
   const handleTabClick = (tabName: TabType) => {
     setSelectedTab((prev) => (prev === tabName ? null : tabName));
   };
 
-    const { setPopupVisible } = usePopup();
 
     useEffect(() => {
       setPopupVisible(!!selectedTab);

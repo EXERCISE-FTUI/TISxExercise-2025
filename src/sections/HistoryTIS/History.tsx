@@ -10,7 +10,7 @@ const History = () => {
           alt="History Title"
           width={1000}
           height={500}
-          className="w-68 md:w-[1000px] relative z-10 -mb-[30px] md:-mb-[110px] mr-25 md:mr-72 lg:mr-90"
+          className="w-68 md:w-[1000px] relative z-10 -mb-[30px] md:-mb-[110px] mr-25 md:mr-0 lg:mr-90"
         />
       </div>
 
