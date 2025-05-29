@@ -3,7 +3,7 @@ import React from 'react';
 
 const Hero = () => {
   return (
-    <div id="hero" className="relative w-screen h-screen -mb-12 overflow-visible">
+    <div id="beranda" className="relative w-screen h-screen -mb-12 overflow-visible">
       <div className="absolute inset-0">
         <img 
           src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748368452/image_5_1_kyxv7t.png"

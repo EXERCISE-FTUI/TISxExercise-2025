@@ -16,7 +16,7 @@ const WhatIsTIS = () => {
   return (
     // Background container with gradient
     <div 
-      id="what-is-tis" 
+      id="tentang-kami" 
       className="relative w-full overflow-hidden"
       style={{ 
         height: '160vh',

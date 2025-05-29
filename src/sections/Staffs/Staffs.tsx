@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import StaffPopup from './components/StaffPopup';
 import FullTeam from './components/FullTeam';
+import { usePopup } from '@/contexts/PopupContext';
 
 type TabType = 'kepala' | 'internal' | 'external';
 
@@ -13,6 +14,13 @@ const Staffs = () => {
   const handleTabClick = (tabName: TabType) => {
     setSelectedTab((prev) => (prev === tabName ? null : tabName));
   };
+
+    const { setPopupVisible } = usePopup();
+
+    useEffect(() => {
+      setPopupVisible(!!selectedTab);
+      return () => setPopupVisible(false); // reset saat unmount
+    }, [selectedTab]);
 
   useEffect(() => {
     const updateStroke = () => {
@@ -50,11 +58,11 @@ useEffect(() => {
 
   return (
     <>
-      <div id="operational-region" className="min-h-[50%] w-full">
+      <div id="pengurus" className="min-h-[50%] w-full">
         {/* JUDUL */}
         <div className="flex justify-center px-3 bg-[#FFFD80]">
           <h1
-            className="text-[clamp(34px,7vw,200px)] text-center font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_7px_#000056] font-poppins"
+            className="text-4xl lg:text-[90px] text-center font-bold leading-none text-[#383A85] drop-shadow-[0px_1px_2px_#000056] md:drop-shadow-[0px_2px_7px_#000056] font-poppins"
             style={{
               WebkitTextStroke: `${strokeWidth} #FFF`,
             }}
@@ -63,24 +71,24 @@ useEffect(() => {
           </h1>
         </div>
         {/* GROUP OPTIONS + IMAGE */}
-        <div className="mx-auto mt-[4%] max-w-[86%] h-auto">
+        <div className="mx-auto mt-[4%] max-w-[86%] h-auto font-bold">
           {/* OPTIONS BAR */}
-          <div className="sm:mx-[14%] grid grid-cols-3 text-[#383A85] sm:text-[clamp(2px,2vw,100px)] text-[clamp(2px,3.3vw,100px)] md:gap-[6%] sm:gap-[10%] gap-[10%]">
+          <div className="sm:mx-[14%] flex justify-center items-center text-[#383A85] text-xs lg:text-2xl md:gap-[5%] gap-[8%]">
             <button
               onClick={() => handleTabClick('kepala')}
-              className={`rounded-md bg-[#C7E7F8] py-[2%] text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
+              className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
               Kepala Sekolah
             </button>
             <button
               onClick={() => handleTabClick('internal')}
-              className={`rounded-md bg-[#C7E7F8] py-[2%] text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
+              className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
               Bidang Internal
             </button>
             <button
               onClick={() => handleTabClick('external')}
-              className={`rounded-md bg-[#C7E7F8] py-[2%] text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
+              className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
               Bidang External
             </button>

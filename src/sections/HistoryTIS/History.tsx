@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const History = () => {
   return (
-    <div id="historytis" className="w-full mt-7 md:mt-12">
+    <div id="sejarah" className="w-full mt-7 md:mt-12">
       <div className="relative flex justify-center">
         <Image
           src="/assets/History/images/Group 809.png"

@@ -8,7 +8,7 @@ const Values: React.FC = () => {
         <h2 className="text-4xl sm:text-5xl md:text-8xl font-extrabold italic uppercase leading-none text-outline-glow">
           NILAI
         </h2>
-        <span className="text-lg sm:text-xl md:text-3xl sm:pb-1 font-semibold text-indigo-900 self-end mb-2">
+        <span className="text-lg md:text-2xl lg:text-3xl font-semibold ml-1 md:mb-2 text-navyPurple flex items-end">
           TIS FTUI 2025
         </span>
       </div>

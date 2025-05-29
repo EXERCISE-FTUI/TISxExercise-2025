@@ -46,7 +46,7 @@ export function Gallery() {
   ]
 
   return (
-    <div>
+    <div id='galeri'>
       <div className="flex justify-center p-7 md:p-20">
         <Image
           src="/assets/Gallery/images/Galeri TIS FTUI 2025.png"

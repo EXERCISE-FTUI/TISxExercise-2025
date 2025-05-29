@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react';
+import { List, X } from '@phosphor-icons/react';
 
 const Mobile = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -95,26 +96,18 @@ const Mobile = () => {
         
         <button
           onClick={toggleMenu}
-          className={`bg-[#383A85] rounded-full border-none p-2 flex flex-col justify-center items-center gap-px h-12 w-12 cursor-pointer transition-transform duration-300 mr-4 ${
+          className={`border-none p-2 flex flex-col justify-center items-center gap-px h-12 w-12 cursor-pointer transition-transform duration-300 mr-4 ${
             isMenuOpen ? 'rotate-90' : ''
           }`}
           aria-label="Toggle menu"
         >
-          <div
-            className={`w-[1.2rem] h-[2.5px] bg-[#F3B334] transition-transform duration-300 ${
-              isMenuOpen ? 'rotate-45 translate-x-0.5 translate-y-0.5' : ''
-            }`}
-          />
-          <div
-            className={`w-[1.2rem] h-[2.5px] bg-[#F3B334] transition-opacity duration-300 ${
-              isMenuOpen ? 'opacity-0' : 'opacity-100'
-            }`}
-          />
-          <div
-            className={`w-[1.2rem] h-[2.5px] bg-[#F3B334] transition-transform duration-300 ${
-              isMenuOpen ? '-rotate-45 translate-x-0.5 -translate-y-0.5' : ''
-            }`}
-          />
+          {isMenuOpen ? (
+            <div className="bg-navyPurple w-full h-full rounded-md">
+              <X size={32} className="text-[#f3b334]" />
+            </div>
+          ) : (
+            <List size={36} className="text-[#f3b334]" />
+          )}
         </button>
       </header>
 
