@@ -10,12 +10,10 @@ type TabType = 'kepala' | 'internal' | 'external';
 const Staffs = () => {
   const [strokeWidth, setStrokeWidth] = useState("2px");
   const [selectedTab, setSelectedTab] = useState<TabType | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
   const { setPopupVisible } = usePopup();
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 768); // sesuai breakpoint Tailwind md
       setPopupVisible(false); // reset popup visibility on resize
     };
     handleResize(); // run on mount
@@ -41,7 +39,7 @@ const Staffs = () => {
       } else if (window.matchMedia("(min-width: 768px)").matches) {
         setStrokeWidth("2px");
       } else if (window.matchMedia("(min-width: 640px)").matches) {
-        setStrokeWidth("1px");
+        setStrokeWidth("0.8px");
       } else {
         setStrokeWidth("0.6px");
       }
@@ -72,9 +70,9 @@ useEffect(() => {
     <>
       <div id="pengurus" className="min-h-[50%] w-full">
         {/* JUDUL */}
-        <div className="flex justify-center px-3 bg-[#FFFD80]">
+        <div className="flex justify-center px-3 pb-3 bg-[#FFFD80]">
           <h1
-            className="text-4xl lg:text-[90px] text-center font-bold leading-none text-[#383A85] drop-shadow-[0px_1px_2px_#000056] md:drop-shadow-[0px_2px_7px_#000056] font-poppins"
+            className="text-3xl md:text-5xl lg:text-[90px] text-center font-bold leading-none text-[#383A85] drop-shadow-[0px_1px_2px_#000056] md:drop-shadow-[0px_2px_7px_#000056] font-poppins"
             style={{
               WebkitTextStroke: `${strokeWidth} #FFF`,
             }}

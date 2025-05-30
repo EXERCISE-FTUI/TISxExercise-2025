@@ -172,7 +172,7 @@ const History = () => {
                 Daops Baru
               </div>
               <div className="text-xs md:text-[1.6rem] lg:text-[2rem] md:w-[450px] text-[#383A85] md:ml-50 leading-normal text-right">
-                Daerah operasional "Baru" ditambahkan.
+                Daerah operasional {"Baru"} ditambahkan.
               </div>
             </div>
           </div>

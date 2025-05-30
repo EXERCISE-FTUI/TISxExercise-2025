@@ -279,20 +279,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   ];
 
   return (
-    <div
-      className="
-  flex flex-col items-center justify-center
-  h-[70vh] md:h-[85vh] lg:h-[80vh]
-  w-[95%] sm:w-[90%] md:w-[85%] lg:w-[75%] xl:w-[65%]
-  max-w-screen-lg
-  mx-auto 
-  my-auto 
-  overflow-y-auto 
-  rounded-xl 
-  p-1
-"
-    >
-      {" "}
+    <div className="flex flex-col items-center justify-center h-[50%] md:h-[85%] lg:h-[80%]">
       {/* Title */}
       <div className="hidden md:flex md:justify-center">
         <h1
@@ -304,6 +291,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
           PENGURUS TIS FTUI 2025
         </h1>
       </div>
+
       {/* Tabs */}
       <div className="w-full flex justify-center items-center">
         <div className="flex justify-between gap-[5%] lg:w-[40rem] md:w-[36rem] sm:w-lg xsm1:w-[70%] w-[80%] mt-4 text-sm md:text-md lg:text-lg">
@@ -326,6 +314,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
           ))}
         </div>
       </div>
+
       {/* Navigation Buttons for Divisions */}
       {divisions.length > 1 && (
         <>
@@ -346,7 +335,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
         </>
       )}
       {/* Content Container */}
-      <div className="bg-white/10 relative mx-auto mt-5 mb-2 w-full rounded-xl  text-white backdrop-blur-sm1 overflow-hidden">
+      <div className="bg-white/10 relative mx-auto mt-5 mb-2 w-[95%] sm1:w-full max-w-full sm1:max-w-screen-sm1 md:max-w-screen-md lg:max-w-screen-lg rounded-xl  text-white backdrop-blur-sm1 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 px-2 md:pr-[6%] py-3 md:pt-3">
           {/* Mobile Title & Description */}
           <div className="md:hidden mb-3">
@@ -380,7 +369,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
                 key={`${currentDivisionIndex}-${currentImageIndex}-${imageLoadAttempt}`} // Force re-render
                 src={getImageUrl(images[currentImageIndex])}
                 alt={currentDivision.name}
-                className="w-full flex justify-self-end rounded-xl border border-navyPurple"
+                className='w-full flex justify-self-end rounded-xl border border-navyPurple'
                 // className="md:flex md:justify-self-end md:w-[17vw] md:h-full h-[90%] sm1:w-[30%] xsm1:w-[30%] md:object-cover object-contain md:mx-0 mx-auto rounded-[30px] border border-[#383F96]"
                 onError={(e) => {
                   const target = e.currentTarget as HTMLImageElement;

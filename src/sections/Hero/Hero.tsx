@@ -8,7 +8,8 @@ const Hero = () => {
         <img 
           src="https://res.cloudinary.com/dlbv6554z/image/upload/v1748368452/image_5_1_kyxv7t.png"
           alt="Hero Background" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center max-w-[2100px]"
+
         />
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-blue-400/60 via-40% via-gray-300/40 via-60% via-blue-400/60 to-blue-900/90"></div>
       </div>
@@ -19,11 +20,11 @@ const Hero = () => {
         style={{
           left: 0,
           top: '53%',
-          width: '18vw',
+          width: '13vw',
           minWidth: '120px',
           maxWidth: '260px',
           height: 'auto',
-          zIndex: 20,
+          zIndex: 10,
         }}
       >
         <img
@@ -40,17 +41,16 @@ const Hero = () => {
 
       {/* CloudRight */}
       <div
-        className="absolute"
+        className="absolute md:right-0 right-[-4rem]"
         style={{
-          right: 0,
           left: 'auto',
           top: '50%',
           transform: 'translateY(-50%)',
-          width: '28vw',
+          width: '25vw',
           minWidth: '200px',
           maxWidth: '420px',
           height: 'auto',
-          zIndex: 20,
+          zIndex: 10,
         }}
       >
         <img
@@ -65,20 +65,20 @@ const Hero = () => {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-start justify-center h-full px-8 text-left"
+      <div className="relative z-30 flex flex-col items-start justify-center h-full px-8 text-left"
         style={{ marginLeft: '4vw' }}
       >
         <div className="mb-8 flex flex-col items-start">
           {/* HEROText */}
           <h1
-            className="text-8xl md:text-9xl font-black text-white tracking-tight leading-none pr-4"
+            className="text-6xl md:text-9xl font-black text-white tracking-tight leading-none pr-4 stroke"
             style={{
               WebkitTextStroke: '6px #1c465c',
               color: 'white',
               textShadow: '0 8px 24px #171779',
             }}
           >
-            TIS FTUI <br />
+            TIS FTUI<br />
             {/* Year */}
             <span
               className="block"
@@ -96,7 +96,7 @@ const Hero = () => {
         <div className="flex flex-col items-center w-full">
           {/* YellowText */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2 text-black text-lg md:text-xl mb-3 shadow-lg text-center"
+            className="absolute left-1/2 transform -translate-x-1/2 text-black text-md md:text-xl mb-3 shadow-lg text-center w-[80%] md:w-fit"
             style={{
               backgroundColor: '#FFFD80',
               padding: '3px 20px',
@@ -110,9 +110,8 @@ const Hero = () => {
 
           {/* YellowButton */}
           <div
-            className="absolute left-1/2 transform -translate-x-1/2"
+            className="absolute left-1/2 transform -translate-x-1/2 bottom-[-50px] md:bottom-[-30px]"
             style={{
-              bottom: '-32px',
               zIndex: 30,
             }}
           >

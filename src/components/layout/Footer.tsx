@@ -55,7 +55,9 @@ const Footer = () => {
     <div className="relative w-full max-w-[2100px] bg-[#DCF0FA] overflow-hidden">
       {/* Gelombang Awan */}
       <div className="w-[150%] ml-[-40%] mb-[-1%] leading-none">
-        <img
+        <Image
+          width={2000}
+          height={500}
           src="/assets/gelombangs.svg"
           alt="Gelombang Awan"
           className="w-full"

@@ -63,7 +63,6 @@ useEffect(() => {
   };
 
   if (isMobile) return <Mobile />;
-  
   if (popupVisible) return null; // Hide header when popup is visible
 
   return (
@@ -73,12 +72,12 @@ useEffect(() => {
       }`}
     >
       <div className="flex items-center justify-between px-6">
-        <div className="flex justify-center items-center gap-4">
-          <Image
+        <div className="flex p-1 justify-center items-center gap-4">
+          <Image  
             src="/assets/staffs/images/Logo TIS FTUI.png"
             alt="TIS FTUI Logo"
-            width={140}
-            height={140}
+            width={90}
+            height={90}
             className="ml-4"
           />
         </div>
