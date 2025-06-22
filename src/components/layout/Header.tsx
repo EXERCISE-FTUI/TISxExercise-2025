@@ -61,13 +61,14 @@ const Header = () => {
       >
         <div className="flex items-center justify-between px-6">
           {/* logo */}
-          <div className="flex p-1 justify-center items-center ml-4">
+          <div className="flex xl:p-1 justify-center items-center ml-2 xl:ml-4">
             <Image
               src="/assets/Staffs/images/logo-tis.png"
               alt="TIS FTUI Logo"
               width={90}
               height={90}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="scale-70 xl:scale-100"
             />
             <X size={18} weight="bold" className="text-[#15394A]" />
             <Image
@@ -76,12 +77,12 @@ const Header = () => {
               width={90}
               height={90}
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              className="ml-3"
+              className="ml-1 xl:ml-3 scale-70 xl:scale-100"
             />
           </div>
 
           {/* navmenus */}
-          <div className="w-fit flex items-center justify-center gap-8 text-navyPurple font-bold text-sm lg:text-lg xl:text-xl">
+          <div className="w-fit flex items-center justify-center gap-8 text-navyPurple font-bold text-sm lg:text-[13px] xl:text-xl">
             {dropdownMenuItems.map((item) => (
               <a
                 key={item.id}
