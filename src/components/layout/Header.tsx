@@ -1,9 +1,9 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import Mobile from "./Mobile";
-import { List, X } from "@phosphor-icons/react";
-import Image from "next/image";
 import { usePopup } from "@/contexts/PopupContext";
+import { X } from "@phosphor-icons/react";
+import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
+import Mobile from "./Mobile";
 
 const dropdownMenuItems = [
   { id: "tentang", label: "Tentang Kami", href: "#tentang-kami" },
@@ -13,146 +13,127 @@ const dropdownMenuItems = [
 ];
 
 const Header = () => {
-  const [isMobile, setIsMobile] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeButton, setActiveButton] = useState<string | null>(null);
   const [visible, setVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [isDropdownVisible, setIsDropdownVisible] = useState(false);
   const { popupVisible } = usePopup();
-
-  const toggleMenu = () => {
-    if (!isMenuOpen) {
-      setIsDropdownVisible(true);
-      setIsMenuOpen(true);
-    } else {
-      setIsMenuOpen(false);
-      // delay hiding for animation
-      setTimeout(() => setIsDropdownVisible(false), 200);
-    }
-  };
-
+  const timeoutId = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    const handleResize = () => setIsMobile(window.innerWidth <= 768);
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    let prevScroll = window.pageYOffset;
+
+    const handleScroll = () => {
+      const currentScroll = window.pageYOffset;
+      const isScrollingUp = currentScroll < prevScroll;
+
+      if (Math.abs(currentScroll - prevScroll) > 10) {
+        setVisible(isScrollingUp);
+      }
+
+      prevScroll = currentScroll;
+
+      if (timeoutId.current) clearTimeout(timeoutId.current);
+
+      timeoutId.current = setTimeout(() => {
+        setVisible(true);
+      }, 3000);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (timeoutId.current) clearTimeout(timeoutId.current);
+    };
   }, []);
-
-useEffect(() => {
-  const handleScroll = () => {
-    const currentScrollPos = window.pageYOffset;
-    const isScrollingUp = currentScrollPos < prevScrollPos;
-
-    if (Math.abs(prevScrollPos - currentScrollPos) > 10) {
-      setVisible(isScrollingUp);
-      setIsMenuOpen(false);
-    }
-
-    setPrevScrollPos(currentScrollPos);
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, [prevScrollPos]);
 
   const handleButtonClick = (id: string) => {
     setActiveButton(id);
     setTimeout(() => setActiveButton(null), 300);
   };
 
-  if (isMobile) return <Mobile />;
-  if (popupVisible) return null; // Hide header when popup is visible
+  if (popupVisible) return null;
 
   return (
-    <header
-      className={`fixed max-w-[2100px] top-[-5px] z-[1000] w-full bg-white shadow-md transition-transform duration-300 ${
-        visible ? "translate-y-0" : "-translate-y-full"
-      }`}
-    >
-      <div className="flex items-center justify-between px-6">
-        <div className="flex p-1 justify-center items-center gap-4">
-          <Image  
-            src="/assets/staffs/images/Logo TIS FTUI.png"
-            alt="TIS FTUI Logo"
-            width={90}
-            height={90}
-            className="ml-4"
-          />
-        </div>
+    <div>
+      <div
+        className={`fixed hidden lg:block max-w-[2100px] top-[-5px] z-[1000] w-full bg-white shadow-md transition-transform duration-300 ${
+          visible ? "translate-y-0" : "-translate-y-full"
+        }`}
+      >
+        <div className="flex items-center justify-between px-6">
+          {/* logo */}
+          <div className="flex p-1 justify-center items-center ml-4">
+            <Image
+              src="/assets/Staffs/images/logo-tis.png"
+              alt="TIS FTUI Logo"
+              width={90}
+              height={90}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            />
+            <X size={18} weight="bold" className="text-[#15394A]" />
+            <Image
+              src="/assets/Staffs/images/logo-exer.png"
+              alt="TIS FTUI Logo"
+              width={90}
+              height={90}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="ml-3"
+            />
+          </div>
 
-        <div className="flex gap-4 pr-6">
-          {/* Button Component */}
-          <HoverButton
-            label="Download Booklet"
-            color="bg-[#C7E7F8]"
-            id="booklet"
-            active={activeButton}
-            onClick={() => handleButtonClick("booklet")}
-          />
-          <HoverButton
-            label="Kontak"
-            color="bg-[#C7E7F8]"
-            id="kontak"
-            active={activeButton}
-            onClick={() => handleButtonClick("kontak")}
-          />
-
-          {/* Dropdown */}
-          <div className="relative">
-            <div className="flex gap-1 items-center rounded-full bg-[#FFFD80] px-6 pr-14 py-2 shadow-md z-100">
-              <button
-                onClick={toggleMenu}
-                className="absolute right-0 flex flex-col gap-[2px] h-12 w-12 items-center justify-center rounded-full bg-[#383A85] transition-transform hover:rotate-90"
+          {/* navmenus */}
+          <div className="w-fit flex items-center justify-center gap-8 text-navyPurple font-bold text-sm lg:text-lg xl:text-xl">
+            {dropdownMenuItems.map((item) => (
+              <a
+                key={item.id}
+                href={item.href}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const target = document.querySelector(item.href);
+                  if (target) {
+                    target.scrollIntoView({ behavior: "smooth" });
+                  }
+                  handleButtonClick(item.id);
+                }}
+                className={`hover:text-[#1a1c5a] hover:underline transition-colors duration-150 ${
+                  activeButton === item.id ? "text-[#1a1c5a]" : ""
+                }`}
               >
-                {isMenuOpen ? (
-                  <X size={32} className="text-[#f3b334]" />
-                ) : (
-                  <List size={32} className="text-[#f3b334]" />
-                )}
-              </button>
+                {item.label}
+              </a>
+            ))}
+          </div>
 
-              <div className="font-bold text-lg text-[#383A85]">
-                TIS FTUI
-              </div>
-            </div>
-
-            {isDropdownVisible && (
-              <div
-                className={`absolute right-0 mt-0.5 w-56 rounded-2xl bg-[#FFFD80] shadow-lg z-50 transform transition-all duration-200 ease-out overflow-x-hidden
-      ${
-        isMenuOpen
-          ? "opacity-100 scale-100"
-          : "opacity-0 scale-95 pointer-events-none"
-      }`}
-              >
-                {dropdownMenuItems.map((item, index) => (
-                  <React.Fragment key={item.id}>
-                    <a
-                      href={item.href}
-                      onClick={() => {
-                        setIsMenuOpen(false);
-                        setTimeout(() => setIsDropdownVisible(false), 200);
-                        handleButtonClick(item.id);
-                      }}
-                      className={`block px-5 py-2.5 text-[#383A85] font-semibold transition-colors duration-150 hover:bg-[#f0edd4] ${
-                        activeButton === item.id ? "bg-[#f0edd4]" : ""
-                      }`}
-                    >
-                      {item.label}
-                    </a>
-                    {index < dropdownMenuItems.length - 1 && (
-                      <hr className="border-t border-[#383A85]/30 mx-4 my-0.5" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-            )}
+          {/* button kontak booklet */}
+          <div className="flex gap-4 pr-6">
+            {/* Button Component */}
+            <HoverButton
+              label="Download Booklet"
+              color="bg-[#C7E7F8]"
+              id="booklet"
+              active={activeButton}
+              onClick={() => {
+                window.open(
+                  "https://drive.google.com/drive/folders/1bWBgFXwuoodlvGAO4BKrAJTEPMG9GkLM",
+                  "_blank"
+                );
+                handleButtonClick("booklet");
+              }}
+            />
+            <HoverButton
+              label="Kontak"
+              color="bg-[#C7E7F8]"
+              id="kontak"
+              active={activeButton}
+              onClick={() => {
+                window.open("https://shor.by/TISFTUI", "_blank");
+                handleButtonClick("kontak");
+              }}
+            />
           </div>
         </div>
       </div>
-    </header>
+      <Mobile />
+    </div>
   );
 };
 
@@ -173,7 +154,7 @@ const HoverButton = ({
     <button
       onClick={onClick}
       className={`
-        ${color} rounded-full px-6 py-2 text-lg font-bold text-[#383A85] shadow-md transition-transform hover:scale-105
+        ${color} rounded-full lg:px-4 xl:px-6 lg:py-2 lg:text-[12px] xl:text-lg font-bold text-[#383A85] shadow-md cursor-pointer transition-transform hover:scale-105
         ${active === id ? "scale-95 text-[#1a1c5a]" : ""}
       `}
     >

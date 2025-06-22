@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import StaffPopup from './components/StaffPopup';
-import FullTeam from './components/FullTeam';
-import { usePopup } from '@/contexts/PopupContext';
+import { usePopup } from "@/contexts/PopupContext";
+import { useEffect, useState } from "react";
+import FullTeam from "./components/FullTeam";
+import StaffPopup from "./components/StaffPopup";
 
-type TabType = 'kepala' | 'internal' | 'external';
+type TabType = "kepala" | "internal" | "external" | null;
 
 const Staffs = () => {
   const [strokeWidth, setStrokeWidth] = useState("2px");
@@ -21,16 +21,14 @@ const Staffs = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-
-  const handleTabClick = (tabName: TabType) => {
+  const handleTabClick = (tabName: TabType | null) => {
     setSelectedTab((prev) => (prev === tabName ? null : tabName));
   };
 
-
-    useEffect(() => {
-      setPopupVisible(!!selectedTab);
-      return () => setPopupVisible(false); // reset saat unmount
-    }, [selectedTab]);
+  useEffect(() => {
+    setPopupVisible(!!selectedTab);
+    return () => setPopupVisible(false); // reset saat unmount
+  }, [selectedTab]);
 
   useEffect(() => {
     const updateStroke = () => {
@@ -49,22 +47,20 @@ const Staffs = () => {
     return () => window.removeEventListener("resize", updateStroke);
   }, []);
 
-useEffect(() => {
-  if (selectedTab) {
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
-  }
+  useEffect(() => {
+    if (selectedTab) {
+      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    }
 
-  return () => {
-    document.body.style.overflow = "auto";
-    document.documentElement.style.overflow = "auto";
-  };
-}, [selectedTab]);
-
-
+    return () => {
+      document.body.style.overflow = "auto";
+      document.documentElement.style.overflow = "auto";
+    };
+  }, [selectedTab]);
 
   return (
     <>
@@ -83,42 +79,41 @@ useEffect(() => {
         {/* GROUP OPTIONS + IMAGE */}
         <div className="mx-auto mt-[4%] max-w-[86%] h-auto font-bold">
           {/* OPTIONS BAR */}
-          <div className="sm:mx-[14%] flex justify-center items-center text-[#383A85] text-xs lg:text-2xl md:gap-[5%] gap-[8%]">
+          <div className="sm:mx-[14%] flex justify-center items-center text-[#383A85] text-xs lg:text-xl xl:text-2xl md:gap-[5%] gap-[8%]">
             <button
-              onClick={() => handleTabClick('kepala')}
+              onClick={() => handleTabClick("kepala")}
               className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
               Kepala Sekolah
             </button>
             <button
-              onClick={() => handleTabClick('internal')}
+              onClick={() => handleTabClick("internal")}
               className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
               Bidang Internal
             </button>
             <button
-              onClick={() => handleTabClick('external')}
+              onClick={() => handleTabClick("external")}
               className={`rounded-lg bg-[#C7E7F8] p-2 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105`}
             >
-              Bidang External
+              Bidang Eksternal
             </button>
           </div>
           {/* CONDITIONAL POPUP */}
           {selectedTab && (
-            <div
-              className="fixed inset-0 flex items-center justify-center backdrop-blur-xs bg-black/30 z-40"
-            >
-              <div
+            <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs bg-black/30 z-40">
+              {/* <div
                 className="md:relative py-11 md:px-20 px-10 rounded-[20px] shadow-lg bg-[#F4FAFD] md:min-h-[42vw] min-h-[screen] md:w-[90%] w-[93%] flex flex-col justify-center overflow-y-auto overflow-x-hidden"
                 onClick={(e) => e.stopPropagation()}
+              > */}
+              <div
+                className="w-screen h-screen flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden"
+                onClick={(e) => e.stopPropagation()}
               >
-                <button
-                  onClick={() => handleTabClick(selectedTab)}
-                  className="absolute md:top-1 md:right-1 top-12 right-2 md:mr-[2%] mr-[5%]  text-[#676767] text-[300%] font-extralight"
-                >
-                  &times;
-                </button>
-                <StaffPopup selectedTab={selectedTab} onTabChange={handleTabClick} />
+                <StaffPopup
+                  selectedTab={selectedTab}
+                  onTabChange={handleTabClick}
+                />
               </div>
             </div>
           )}

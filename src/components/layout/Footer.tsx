@@ -13,7 +13,7 @@ import {
 
 const socialMediaLinks = [
   {
-    href: "https://www.youtube.com/@tisftui",
+    href: "https://www.youtube.com/@techniqueinformalschoolftui",
     icon: (
       <YoutubeLogo
         className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
@@ -40,7 +40,7 @@ const socialMediaLinks = [
     ),
   },
   {
-    href: "https://www.instagram.com/tisftui/",
+    href: "https://www.instagram.com/tisftui",
     icon: (
       <InstagramLogo
         className="w-4 h-4 md:w-6 md:h-6 lg:w-8 lg:h-8"
@@ -69,7 +69,7 @@ const Footer = () => {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Image
-            src="/assets/staffs/images/Logo TIS FTUI.png"
+            src="/assets/Staffs/images/logo-tis.png"
             alt="logo-tis"
             width={120}
             height={120}
@@ -81,18 +81,34 @@ const Footer = () => {
         <div className="text-xs md:text-sm lg:text-base flex flex-col gap-2 max-w-md">
           <div className="flex items-start gap-2">
             <MapPin weight="bold" className="w-10 h-4 md:w-11 md:h-10" />
-            <p>
-              Faculty of Engineering, University of Indonesia, Jl. Prof. DR. Ir
-              R Roosseno, Kukusan, Beji, Depok City, West Java 16425
-            </p>
+            <a
+              href="https://maps.app.goo.gl/Cftv5g9Z4Ha78byo7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              <p>
+                Faculty of Engineering, University of Indonesia, Jl. Prof. DR.
+                Ir R Roosseno, Kukusan, Beji, Depok City, West Java 16425
+              </p>
+            </a>
           </div>
           <div className="flex items-center gap-2">
             <EnvelopeSimple weight="bold" className="w-5 h-5" />
-            <p>tisftui2025@gmail.com</p>
+            <a href="mailto:tisftui2025@gmail.com" className="hover:underline">
+              <p>tisftui2025@gmail.com</p>
+            </a>
           </div>
           <div className="flex items-center gap-2">
             <WhatsappLogo weight="bold" className="w-5 h-5" />
-            <p>085388277808</p>
+            <a
+              href="https://wa.me/6285388277808"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline"
+            >
+              085388277808
+            </a>
           </div>
         </div>
 
@@ -119,7 +135,8 @@ const Footer = () => {
 
       {/* Copyright */}
       <div className="bg-[#FFFD80] text-center text-navyPurple text-xs lg:text-base pb-4 font-bold">
-        &copy; 2025 Technique Informal School FTUI
+        <h1>&copy; 2025 Technique Informal School FTUI</h1>
+        <h1>In collaboration with EXERCISE FTUI</h1>
       </div>
     </div>
   );

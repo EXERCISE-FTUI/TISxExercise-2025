@@ -11,7 +11,7 @@ import History from "@/sections/HistoryTIS/History";
 const Page = () => {
   return (
     <div className="w-full flex justify-center items-center max-w-[2100px] overflow-x-hidden">
-      <div className="w-full flex flex-col">
+      <div className="w-full flex flex-col scroll-smooth">
         <Hero />
         <WhatIsTIS />
         <Values />

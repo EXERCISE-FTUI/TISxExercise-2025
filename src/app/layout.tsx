@@ -22,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={poppins.className}>
+      <body className={`${poppins.className} scroll-smooth`}>
         <div className="min-h-screen w-full flex justify-center items-center">
           <div className="w-full flex flex-col max-w-[2100px] overflow-x-hidden">
             <PopupProvider>

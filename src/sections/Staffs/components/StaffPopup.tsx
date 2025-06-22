@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import { CaretLeft, CaretRight, X } from "@phosphor-icons/react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 type TabType = "kepala" | "internal" | "external";
 
@@ -18,7 +19,7 @@ interface DivisionData {
 
 interface StaffPopupProps {
   selectedTab: TabType;
-  onTabChange: (tab: TabType) => void;
+  onTabChange: (tab: TabType | null) => void;
 }
 
 const StaffPopup: React.FC<StaffPopupProps> = ({
@@ -143,20 +144,14 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   }, [selectedTab]); // Only re-fetch when selectedTab changes
 
   useEffect(() => {
-    if (autoRotateTimer.current) {
-      clearInterval(autoRotateTimer.current);
-    }
+    clearInterval(autoRotateTimer.current!);
     if (!isKepalaSekolah && images.length > 1) {
       autoRotateTimer.current = setInterval(() => {
         setCurrentImageIndex((prev) => (prev + 1) % images.length);
       }, 5000);
     }
-    return () => {
-      if (autoRotateTimer.current) {
-        clearInterval(autoRotateTimer.current);
-      }
-    };
-  }, [isKepalaSekolah, images]); // images itself can be a dependency
+    return () => clearInterval(autoRotateTimer.current!);
+  }, [isKepalaSekolah, images]);
 
   useEffect(() => {
     // When currentDivision changes (e.g., user navigates or tab changes)
@@ -197,11 +192,11 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
     if (totalImages <= 1) return null; // Hide if 0 or 1 image
 
     return (
-      <div className="flex justify-center pt-2">
+      <div className="flex justify-start pt-2">
         {images.map((_, index: number) => (
           <span
             key={index}
-            className={`w-2 h-2 mx-1 rounded-full cursor-pointer ${
+            className={`w-1.5 h-1.5 mx-1 rounded-full cursor-pointer ${
               currentImageIndex === index ? "bg-[#383F96]" : "bg-[#A8ACD8]"
             }`}
             onClick={() => setCurrentImageIndex(index)} // Allow clicking dots
@@ -219,7 +214,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
         {divisions.map((_, index) => (
           <span
             key={index}
-            className={`w-2 h-2 mx-1 rounded-full cursor-pointer ${
+            className={`w-1.5 h-1.5 mx-1 rounded-full cursor-pointer ${
               currentDivisionIndex === index ? "bg-[#383F96]" : "bg-[#A8ACD8]"
             }`}
             onClick={() => setCurrentDivisionIndex(index)} // Allow clicking dots
@@ -275,228 +270,157 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   const tabs: { id: TabType; label: string }[] = [
     { id: "kepala", label: "Kepala Sekolah" },
     { id: "internal", label: "Bidang Internal" },
-    { id: "external", label: "Bidang External" },
+    { id: "external", label: "Bidang Eksternal" },
   ];
 
   return (
-    <div
-      className="
-  flex flex-col items-center justify-center
-  h-[70vh] md:h-[85vh] lg:h-[80vh]
-  w-[95%] sm:w-[90%] md:w-[85%] lg:w-[75%] xl:w-[65%]
-  max-w-screen-lg
-  mx-auto 
-  my-auto 
-  overflow-y-auto 
-  rounded-xl 
-  p-1
-"
-    >
-      {" "}
-      {/* Title */}
-      <div className="hidden md:flex md:justify-center">
+    <div className="relative z-50 group flex flex-col gap-2 items-center justify-center h-4/5 md:h-fit w-full lg:w-9/10 md:w-fit max-w-screen mx-auto my-auto overflow-hidden rounded-xl p-1 md:p-6 xl:p-10 xl:px-3 bg-[#F4FAFD]">
+      {/* judul */}
+      <div className="hidden md:flex md:justify-center md:mt-4 lg:mt-1">
         <h1
-          className="md:text-[clamp(10px,4vw,1000px)] font-bold leading-none text-[#383A85] drop-shadow-[0px_0px_5px_#000056] font-poppins"
+          className="md:text-5xl lg:text-4xl xl:text-[60px] font-bold leading-none text-[#383A85] drop-shadow-[0px_2px_3px_#000056] font-poppins"
           style={{
-            WebkitTextStroke: `clamp(0.6px, 0.2vw + 0.4px, 3px) #FFF`,
+            WebkitTextStroke: `clamp(0.2px, 0.16vw + 0.2px, 2.3px) #FFF`,
           }}
         >
           PENGURUS TIS FTUI 2025
         </h1>
       </div>
-      {/* Tabs */}
-      <div className="w-full flex justify-center items-center">
-        <div className="flex justify-between gap-[5%] lg:w-[40rem] md:w-[36rem] sm:w-lg xsm1:w-[70%] w-[80%] mt-4 text-sm md:text-md lg:text-lg">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => {
-                if (selectedTab !== tab.id) {
-                  onTabChange(tab.id);
-                }
-              }}
-              className={`font-bold md:w-[85%] w-1/2 lg:w-[70%] rounded-xl bg-[#C7E7F8] md:py-2 py-1 text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105 ${
-                selectedTab === tab.id
-                  ? "!bg-[#383F96] text-white"
-                  : "text-[#383A85]" // Ensure text color contrast on non-selected
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
+      {/* tabs bidang */}
+      <div className="flex justify-center items-center gap-[5%] w-full text-[10px] md:text-[12px] xl:text-[16px] mt-12 md:mt-0">
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => {
+              if (selectedTab !== tab.id) {
+                onTabChange(tab.id);
+              }
+            }}
+            className={`font-bold w-fit px-2 py-1 rounded-xl bg-[#C7E7F8] text-center font-poppins not-italic drop-shadow-[2px_5px_5px_#576972] transition-all duration-300 hover:bg-[#383F96] hover:text-white transform hover:scale-105 ${
+              selectedTab === tab.id
+                ? "!bg-[#383F96] text-white"
+                : "text-[#383A85]" // Ensure text color contrast on non-selected
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
       </div>
-      {/* Navigation Buttons for Divisions */}
-      {divisions.length > 1 && (
-        <>
-          <button
-            onClick={handlePrevDivision}
-            className="w-[5%] ml-2 absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-2 transition-all duration-300 hover:bg-[#bbbbbb65] text-[#676767] hover:text-[#547e99] hover:font-semibold text-2xl md:text-[300%] font-extralight"
-            aria-label="Previous Division"
-          >
-            {"<"}
-          </button>
-          <button
-            onClick={handleNextDivision}
-            className="w-[5%] mr-2 absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-2 transition-all duration-300 hover:bg-[#bbbbbb65] text-[#676767] hover:text-[#547e99] hover:font-semibold text-2xl md:text-[300%] font-extralight"
-            aria-label="Next Division"
-          >
-            {">"}
-          </button>
-        </>
-      )}
-      {/* Content Container */}
-      <div className="bg-white/10 relative mx-auto mt-5 mb-2 w-full rounded-xl  text-white backdrop-blur-sm1 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-3 md:gap-x-4 px-2 md:pr-[6%] py-3 md:pt-3">
-          {/* Mobile Title & Description */}
-          <div className="md:hidden mb-3">
-            <h1
-              className="text-[#000056] pt-3 text-center italic sm1:text-[clamp(2px,2.5vw,32px)] xsm3:text-[clamp(2px,5vw,32px)] leading-normal"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                textShadow:
-                  "0px 6px 10px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.30)",
-              }}
-            >
-              {isKepalaSekolah ? (
-                <span className="font-bold">{currentDivision.name}</span>
-              ) : (
-                <>
-                  <span className="font-normal">{bidangPart} </span>
-                  <span className="font-bold">{restOfName}</span>
-                </>
-              )}
-            </h1>
-            <p className="text-[#383A85] pb-[1%] text-center font-normal leading-relaxed text-xs sm1:text-[clamp(2px,1.8vw,90px)] xsm1:text-[clamp(2px,2vw,90px)] xsm2:text-[clamp(2px,2.3vw,90px)] xsm3:text-[clamp(5px,2.4vw,90px)] font-poppins xsm1:px-10 px-1">
-              {currentDivision.desc}
-            </p>
-          </div>
-
-          {/* Image Placeholder & Mobile Image Pagination */}
-          <div className="w-full flex flex-col items-center md:items-start sm1:h-[39vw] xsm1:h-[40vw] xsm2:h-[55vw] xsm22:h-[60vw] xsm3:h-[65vw] h-[70vw] md:w-full md:h-full relative">
-            {images.length > 0 ? (
+      {/* content */}
+      <div className="flex flex-col lg:flex-row mt-1.5 lg:mt-0 items-center justify-start lg:justify-center w-9/10 h-full p-1  text-navyPurple">
+        {/* nama bidang mobile*/}
+        <div className="text-center text-[18px] md:text-[24px] mb-1 italic block lg:hidden">
+          {isKepalaSekolah ? (
+            <span className="font-bold">{currentDivision.name}</span>
+          ) : (
+            <>
+              <span className="font-normal">{bidangPart} </span>
+              <span className="font-bold">{restOfName}</span>
+            </>
+          )}
+        </div>
+        {/* desc bidang mobile*/}
+        <div className="block lg:hidden w-2/3 mb-1">
+          <h1 className="text-[9px] md:text-[12px] text-center font-normal mb-1">
+            {currentDivision.desc}
+          </h1>
+        </div>
+        {/* gambar */}
+        <div className="flex flex-col items-center lg:items-start w-2/3 lg:w-1/3">
+          {images.length > 0 ? (
+            <div className="h-full w-fit flex flex-col justify-center lg:justify-end items-center lg:items-end px-3">
               <img
                 id="staff-photo"
                 key={`${currentDivisionIndex}-${currentImageIndex}-${imageLoadAttempt}`} // Force re-render
                 src={getImageUrl(images[currentImageIndex])}
                 alt={currentDivision.name}
-                className="w-full flex justify-self-end rounded-xl border border-navyPurple"
+                className="rounded-xl border-navyPurple w-2/3 md:w-3/4 xl:w-11/12 border"
                 // className="md:flex md:justify-self-end md:w-[17vw] md:h-full h-[90%] sm1:w-[30%] xsm1:w-[30%] md:object-cover object-contain md:mx-0 mx-auto rounded-[30px] border border-[#383F96]"
-                onError={(e) => {
-                  const target = e.currentTarget as HTMLImageElement;
-                  const currentSrc = target.src;
-                  const defaultPng = "/assets/Staffs/images/default.png";
-
-                  if (currentSrc.endsWith(defaultPng)) return; // Already fallback, do nothing
-
-                  if (currentSrc.toLowerCase().includes(".jpg")) {
-                    // Check for .jpg anywhere (case-insensitive)
-                    // Attempt to replace .jpg with .png only once per image "slot"
-                    // by checking against the intended source from `images` array
-                    const originalSrcFilename = images[currentImageIndex]
-                      ?.split(/[\\/]/)
-                      .pop();
-                    if (
-                      originalSrcFilename &&
-                      !originalSrcFilename.toLowerCase().endsWith(".png")
-                    ) {
-                      target.src = getImageUrl(
-                        originalSrcFilename.replace(/\.(jpg|jpeg)$/i, ".png")
-                      );
-                    } else {
-                      target.src = defaultPng; // If original wasn't jpg or already tried, go to default
-                    }
-                  } else {
-                    // If not jpg and not default, assume it might be missing extension or other issue
-                    target.src = defaultPng;
-                  }
-                  setImageLoadAttempt((prev) => prev + 1); // Increment to change key
-                }}
               />
+              <div className="w-2/3 md:w-3/4 xl:w-11/12">
+                <ImagePaginationDots />
+              </div>
+            </div>
+          ) : (
+            <div className="w-1/2 h-full bg-gray-200 flex items-center justify-center rounded-md text-gray-500 md:w-[17vw] md:max-h-full sm1:w-[30%] xsm1:w-[30%] mx-auto">
+              No image
+            </div>
+          )}
+        </div>
+        {/* desc divisi */}
+        <div className="w-9/10">
+          {/* nama bidang */}
+          <div className="text-center text-md italic lg:text-[24px] xl:text-[40px] hidden lg:block">
+            {isKepalaSekolah ? (
+              <span className="font-extrabold text-[#000056]">
+                {currentDivision.name}
+              </span>
             ) : (
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center rounded-md text-gray-500 md:w-[17vw] md:max-h-full sm1:w-[30%] xsm1:w-[30%] mx-auto">
-                No image
-              </div>
+              <>
+                <span className="font-normal">{bidangPart} </span>
+                <span className="font-extrabold text-[#000056]">
+                  {restOfName}
+                </span>
+              </>
             )}
-            <div className="md:hidden w-full mt-1">
-              {" "}
-              {/* Ensure dots are below image on mobile */}
-              <ImagePaginationDots />
-            </div>
           </div>
-
-          {/* Text Content Area (Responsibilities) */}
-          <div className="md:col-span-2 col-span-1 flex flex-col gap-1 mt-3 md:mt-0 justify-center items-center">
-            {/* Division Name Normal screen*/}
-            <h1
-              className="text-[#000056] text-center italic lg:text-[1.5rem] md:text-[1.375rem] leading-normal md:block hidden"
-              style={{
-                fontFamily: "Poppins, sans-serif",
-                textShadow:
-                  "0px 6px 10px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.30)",
-              }}
-            >
-              {isKepalaSekolah ? (
-                <span className="font-bold ">{currentDivision.name}</span>
-              ) : (
-                <>
-                  <span className="font-normal">{bidangPart} </span>
-                  <span className="font-bold">{restOfName}</span>
-                </>
-              )}
-            </h1>
-
-            {/* Description Normal screen */}
-            <p className="text-[#383A85] text-center font-normal leading-relaxed md:text-sm lg:text-md font-poppins md:block hidden">
+          {/* desc bidang */}
+          <div className="hidden lg:block">
+            <h1 className="text-[5px] md:text-[12px] lg:text-[11px] xl:text-[16px] text-center font-normal">
               {currentDivision.desc}
-            </p>
-
-            {/* Responsibilities Box */}
-            <div className="flex flex-col gap-3 rounded-md p-2 font-poppins h-fit text-[#000056] md:mx-0 xsm1:mx-[10%]">
-              <div className="bg-[#8ACCEF] w-fit h-fit text-[#000056] rounded-md p-1 mt-2 md:mt-4">
-                <h2 className="text-sm md:text-md lg:text-lg sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.3vw,90px)] text-[clamp(10px,1.3vw,90px)] text-[#000056] font-bold">
-                  Tugas
-                </h2>
-              </div>
-              {currentDivision.responsibility &&
-              currentDivision.responsibility.length > 0 ? (
-                <div className="bg-[#8accef] rounded-lg pl-3">
-                  <ol className="list-decimal p-4">
-                    {currentDivision.responsibility.map(
-                      (task: string, index: number) => (
-                        <li
-                          key={index} // If tasks can be reordered/changed, a unique ID would be better
-                          className="text-sm md:text-md lg:text-lg sm1:text-[clamp(2px,1.4vw,90px)] xsm1:text-[clamp(2px,1.3vw,90px)] text-[clamp(10px,1.3vw,90px)] text-[#000056]"
-                        >
-                          {task}
-                        </li>
-                      )
-                    )}
-                  </ol>
-                </div>
-              ) : (
-                <p className="text-xs text-center">
-                  No responsibilities listed.
-                </p>
-              )}
+            </h1>
+          </div>
+          {/* box "tugas" */}
+          <div className="w-full flex justify-center lg:justify-start items-center mt-1">
+            <div className="w-fit text-[8px] md:text-[12px] lg:text-[11px] xl:text-[16px] font-semibold text-[#000056]">
+              <div className="bg-skyBlue p-1 rounded-md mt-1">Tugas</div>
             </div>
           </div>
-        </div>
-
-        {/* Desktop Image Pagination (appears below image which is on the left) */}
-        <div className="hidden md:flex md:flex-col md:items-start md:justify-end pt-2">
-          {" "}
-          {/* Aligned with image column */}
-          <ImagePaginationDots />
-        </div>
-
-        {/* Division Pagination Dots (spans across bottom or centered) */}
-        <div className="md:col-span-3 flex justify-center w-full mt-2 md:mt-1">
-          {" "}
-          {/* Central positioning for division dots */}
-          <DivisionPaginationDots />
+          {/* responsibilities */}
+          <div className="bg-skyBlue p-1 px-2.5 rounded-md w-full text-justify mt-1 text-[8px] leading-none md:text-[12px] lg:text-[10px] xl:text-[16px]">
+            <ol className="list-decimal p-4">
+              {currentDivision.responsibility.map(
+                (task: string, index: number) => (
+                  <li key={index} className="font-normal mb-0.5 text-[#000056]">
+                    {task}
+                  </li>
+                )
+              )}
+            </ol>
+          </div>
+          {/* division dot */}
+          <div className="md:col-span-3 flex justify-center w-full mt-2 md:mt-1">
+            <DivisionPaginationDots />
+          </div>
         </div>
       </div>
+
+      {/* Navigation Buttons for Divisions */}
+      {divisions.length > 1 && (
+        <>
+          <button
+            onClick={handlePrevDivision}
+            className="lg:group-hover:block lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
+            aria-label="Previous Division"
+          >
+            <CaretLeft size={25} />
+          </button>
+          <button
+            onClick={handleNextDivision}
+            className="lg:group-hover:block lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
+            aria-label="Next Division"
+          >
+            <CaretRight size={25} />
+          </button>
+        </>
+      )}
+      <button
+        onClick={() => onTabChange(null)}
+        className="w-[10%] lg:w-[5%] absolute right-0 lg:right-2 top-6 transform -translate-y-1/2 z-10 rounded-full p-2 transition-all duration-300  text-[#676767] hover:text-navyPurple text-xl font-light hover:font-normal"
+        aria-label="Close Popup"
+      >
+        <X size={24} className="cursor-pointer" />
+      </button>
     </div>
   );
 };

@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import fullTeamImage from '/public/assets/Staffs/images/fullTeam.png';
+import Image from "next/image";
+import fullTeamImage from "/public/assets/Staffs/images/fullTeam.png";
 
 const FullTeam = () => {
   return (
@@ -13,6 +13,6 @@ const FullTeam = () => {
       />
     </div>
   );
-}
+};
 
 export default FullTeam;
