@@ -1,6 +1,7 @@
 "use client";
 import { CaretLeft, CaretRight, X } from "@phosphor-icons/react";
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import StaffImage from "./StaffImage";
 
 type TabType = "kepala" | "internal" | "external";
 
@@ -30,10 +31,8 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   const [divisions, setDivisions] = useState<DivisionData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [imageLoadAttempt, setImageLoadAttempt] = useState(0); // Used to force re-render of image on error
   const prevTab = useRef<TabType | null>(null);
-  const autoRotateTimer = useRef<NodeJS.Timeout | null>(null);
+  // const autoRotateTimer = useRef<NodeJS.Timeout | null>(null);
 
   const isKepalaSekolah = selectedTab === "kepala";
   const currentDivision = divisions[currentDivisionIndex];
@@ -80,9 +79,6 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
         // Filter for actual strings before slicing
         return image.filter((img) => typeof img === "string").slice(0, 2);
       }
-      // If 'image' is a single string for internal/external (not an array),
-      // treat as no images for the carousel, or adjust if single image display is desired.
-      // To display a single string image: return typeof image === 'string' ? [image] : [];
       return []; // Current behavior: only arrays of images for internal/external carousel
     }
   }, [currentDivision, isKepalaSekolah]);
@@ -95,9 +91,6 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
       setError(null);
       setDivisions([]); // Clear previous divisions
       setCurrentDivisionIndex(0); // Reset index for new tab
-      setCurrentImageIndex(0); // Reset image index
-      setImageLoadAttempt(0); // Reset load attempts
-
       try {
         const response = await fetch("/assets/Staffs/staffs.resource.json");
         if (!response.ok)
@@ -117,17 +110,11 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
             : [];
 
         if (divisionsArray.length === 0) {
-          // setError(`No divisions found for ${jsonKey}.`); // Optional: more specific error
           console.warn(`No divisions found for ${jsonKey}.`);
         }
 
         setDivisions(divisionsArray);
 
-        // prevTab.current logic seems to be for resetting index, already handled above
-        // if (prevTab.current !== selectedTab) {
-        //   setCurrentDivisionIndex(0);
-        //   prevTab.current = selectedTab;
-        // }
       } catch (err) {
         console.error("Failed to fetch staff data:", err);
         if (err instanceof Error) {
@@ -143,28 +130,6 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
     fetchData();
   }, [selectedTab]); // Only re-fetch when selectedTab changes
 
-  useEffect(() => {
-    clearInterval(autoRotateTimer.current!);
-    if (!isKepalaSekolah && images.length > 1) {
-      autoRotateTimer.current = setInterval(() => {
-        setCurrentImageIndex((prev) => (prev + 1) % images.length);
-      }, 5000);
-    }
-    return () => clearInterval(autoRotateTimer.current!);
-  }, [isKepalaSekolah, images]);
-
-  useEffect(() => {
-    // When currentDivision changes (e.g., user navigates or tab changes)
-    // reset the current image in the carousel to the first one
-    // and reset image load attempts.
-    if (currentDivision) {
-      // Check if currentDivision is defined
-      setCurrentImageIndex(0);
-      setImageLoadAttempt(0);
-    }
-  }, [currentDivision]);
-
-  // Simplified Image Preloader: images is now string[]
   useEffect(() => {
     images.forEach((imgPath: string) => {
       if (imgPath) {
@@ -184,25 +149,6 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   const handleNextDivision = () => {
     setCurrentDivisionIndex((prevIndex) =>
       prevIndex < divisions.length - 1 ? prevIndex + 1 : 0
-    );
-  };
-
-  const ImagePaginationDots: React.FC = () => {
-    const totalImages = images.length;
-    if (totalImages <= 1) return null; // Hide if 0 or 1 image
-
-    return (
-      <div className="flex justify-start pt-2">
-        {images.map((_, index: number) => (
-          <span
-            key={index}
-            className={`w-1.5 h-1.5 mx-1 rounded-full cursor-pointer ${
-              currentImageIndex === index ? "bg-[#383F96]" : "bg-[#A8ACD8]"
-            }`}
-            onClick={() => setCurrentImageIndex(index)} // Allow clicking dots
-          />
-        ))}
-      </div>
     );
   };
 
@@ -274,7 +220,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
   ];
 
   return (
-    <div className="relative z-50 group flex flex-col gap-2 items-center justify-center h-4/5 md:h-fit w-full lg:w-9/10 md:w-fit max-w-screen mx-auto my-auto overflow-hidden rounded-xl p-1 md:p-6 xl:p-10 xl:px-3 bg-[#F4FAFD]">
+    <div className="relative z-50 group flex flex-col gap-2 items-center justify-center h-[85%] md:h-[75%] lg:h-fit w-screen md:w-9/10  max-w-screen mx-auto my-auto overflow-hidden rounded-xl p-1 md:p-6 xl:p-10 xl:px-3 bg-[#F4FAFD]">
       {/* judul */}
       <div className="hidden md:flex md:justify-center md:mt-4 lg:mt-1">
         <h1
@@ -326,26 +272,10 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
           </h1>
         </div>
         {/* gambar */}
-        <div className="flex flex-col items-center lg:items-start w-2/3 lg:w-1/3">
+        <div className="flex flex-col items-center justify-center w-2/3 lg:w-1/3">
           {images.length > 0 ? (
-            <div className="h-full w-fit flex flex-col justify-center lg:justify-end items-center lg:items-end px-3">
-              <img
-                id="staff-photo"
-                key={`${currentDivisionIndex}-${currentImageIndex}-${imageLoadAttempt}`} // Force re-render
-                src={getImageUrl(images[currentImageIndex])}
-                alt={currentDivision.name}
-                className="rounded-xl border-navyPurple w-2/3 md:w-3/4 xl:w-11/12 border"
-                // className="md:flex md:justify-self-end md:w-[17vw] md:h-full h-[90%] sm1:w-[30%] xsm1:w-[30%] md:object-cover object-contain md:mx-0 mx-auto rounded-[30px] border border-[#383F96]"
-              />
-              <div className="w-2/3 md:w-3/4 xl:w-11/12">
-                <ImagePaginationDots />
-              </div>
-            </div>
-          ) : (
-            <div className="w-1/2 h-full bg-gray-200 flex items-center justify-center rounded-md text-gray-500 md:w-[17vw] md:max-h-full sm1:w-[30%] xsm1:w-[30%] mx-auto">
-              No image
-            </div>
-          )}
+            <StaffImage images={images.map((image) => getImageUrl(image))} />
+          ) : null}
         </div>
         {/* desc divisi */}
         <div className="w-9/10">
@@ -378,7 +308,7 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
           </div>
           {/* responsibilities */}
           <div className="bg-skyBlue p-1 px-2.5 rounded-md w-full text-justify mt-1 text-[8px] leading-none md:text-[12px] lg:text-[10px] xl:text-[16px]">
-            <ol className="list-decimal p-4">
+            <ol className="list-decimal px-4 py-2">
               {currentDivision.responsibility.map(
                 (task: string, index: number) => (
                   <li key={index} className="font-normal mb-0.5 text-[#000056]">
@@ -400,14 +330,14 @@ const StaffPopup: React.FC<StaffPopupProps> = ({
         <>
           <button
             onClick={handlePrevDivision}
-            className="lg:group-hover:block lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
+            className="lg:group-hover:block cursor-pointer lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
             aria-label="Previous Division"
           >
             <CaretLeft size={25} />
           </button>
           <button
             onClick={handleNextDivision}
-            className="lg:group-hover:block lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
+            className="lg:group-hover:block cursor-pointer lg:hidden w-8 h-8 flex justify-center items-center border border-navyPurple/60 absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 z-10 rounded-full p-0.5 transition-all duration-300 hover:bg-navyPurple/60 text-navyPurple/60 hover:text-white hover:border-none text-xl font-normal"
             aria-label="Next Division"
           >
             <CaretRight size={25} />

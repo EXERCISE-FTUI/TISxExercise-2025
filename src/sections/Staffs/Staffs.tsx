@@ -102,10 +102,6 @@ const Staffs = () => {
           {/* CONDITIONAL POPUP */}
           {selectedTab && (
             <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xs bg-black/30 z-40">
-              {/* <div
-                className="md:relative py-11 md:px-20 px-10 rounded-[20px] shadow-lg bg-[#F4FAFD] md:min-h-[42vw] min-h-[screen] md:w-[90%] w-[93%] flex flex-col justify-center overflow-y-auto overflow-x-hidden"
-                onClick={(e) => e.stopPropagation()}
-              > */}
               <div
                 className="w-screen h-screen flex flex-col items-center justify-center overflow-y-auto overflow-x-hidden"
                 onClick={(e) => e.stopPropagation()}
